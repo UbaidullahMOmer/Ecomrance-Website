@@ -2,6 +2,10 @@ import React from 'react'
 import Navbar from "./Navbar.js"
 import Footer from '../Footer.js'
 import '../style.css'
+// import "./images/hero-2.png"
+// import "./images/hero-1.jpg"
+import cart from  "./images/cat1.jpg"
+
 function Home() {
   return (
     <>
@@ -63,7 +67,7 @@ function Home() {
          </div>
        </div>
        <div className="cat">
-         <img src="./images/cat1.jpg" alt="" />
+         <img src={cart} alt="" />
          <div>
            <p>MEN'S WEAR</p>
          </div>
