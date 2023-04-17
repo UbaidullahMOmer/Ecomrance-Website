@@ -1,8 +1,7 @@
+import Home from "./Component/Home/Home"
 function App() {
   return (
-    <div className="App">
-      <h1>Ubaidullah</h1>
-    </div>
+    <Home/>
   );
 }
 
