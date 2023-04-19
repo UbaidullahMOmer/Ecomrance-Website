@@ -6,6 +6,7 @@ import "./style.css"
 // import "./images/hero-1.jpg"
 // import cart from  "./images/cat1.jpg"
 
+
 function Home() { 
   return (
     <>
@@ -30,7 +31,7 @@ function Home() {
                  <a href="/" className="hero-btn">SHOP NOW</a>
                </div>
                <div className="right">
-                   <img className="img1" src="./images/hero-1.jpg" alt=""/>
+                   <img className="img1" src="./images/a.jpg" alt="dsfddf"/>
                </div>
              </div>
            </li>
@@ -43,7 +44,7 @@ function Home() {
                  <a href="/" className="hero-btn">SHOP NOW</a>
                </div>
                <div className="right">
-                 <img className="img2" src="./images/hero-2.png" alt=""/>
+                 <img className="img2" src="./images/b.png" alt="fgd"/>
                </div>
              </div>
            </li>
@@ -57,13 +58,13 @@ function Home() {
    <section className="section category">
      <div className="cat-center">
        <div className="cat">
-         <img src="./images/cat3.jpg" alt="" />
+         <img src="./images/cat3.jpg" alt="sds" />
          <div>
            <p>WOMEN'S WEAR</p>
          </div>
        </div>
        <div className="cat">
-         <img src="./images/cat2.jpg" alt="" />
+         <img src="./images/cat2.jpg" alt="sdfsd" />
          <div>
            <p>ACCESSORIES</p>
          </div>

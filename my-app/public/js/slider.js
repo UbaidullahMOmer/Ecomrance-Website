@@ -1,4 +1,7 @@
 // Hero Carousel
+// import Glide, { Slide } from 'react-glidejs';
+
+
 const slider1 = document.querySelector('#glide_1');
 if (slider1) {
   new Glide(slider1, {
