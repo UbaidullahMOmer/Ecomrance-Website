@@ -1,18 +1,20 @@
 import React from 'react'
 import Navbar from "./Navbar.js"
-import Footer from '../Footer.js'
-import '../style.css'
+import Footer from './Footer.js'
+import "./style.css"
 // import "./images/hero-2.png"
 // import "./images/hero-1.jpg"
-import cart from  "./images/cat1.jpg"
+// import cart from  "./images/cat1.jpg"
 
-function Home() {
+function Home() { 
   return (
     <>
     {/* <!-- Header --> */}
    <header className="header" id="header">
-     {/* <!-- Top Nav --> */}
+
+    {/* Navbar link  */}
      <Navbar/>
+    {/* Navbar link  */}
 
      {/* Hero Section  */}
    <div className="hero">
@@ -67,7 +69,7 @@ function Home() {
          </div>
        </div>
        <div className="cat">
-         <img src={cart} alt="" />
+         <img src="./images/cat1.jpg" alt="Cat1 imga" />
          <div>
            <p>MEN'S WEAR</p>
          </div>
