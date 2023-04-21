@@ -1,6 +1,6 @@
 import React from 'react'
-import Navbar from "./Navbar.js"
-import Footer from './Footer.js'
+// import Navbar from "./Navbar.js"
+// import Footer from './Footer.js'
 // import "./style.css"
 // import "./images/hero-2.png"
 // import "./images/hero-1.jpg"
@@ -14,7 +14,7 @@ function Home() {
    <header className="header" id="header">
 
     {/* Navbar link  */}
-     <Navbar/>
+     {/* <Navbar/> */}
     {/* Navbar link  */}
 
      {/* Hero Section  */}
@@ -352,7 +352,7 @@ function Home() {
 
    {/* <!-- Footer --> */}
    
-   <Footer/>
+   {/* <Footer/> */}
 
     {/* <!-- Footer --> */}
 
