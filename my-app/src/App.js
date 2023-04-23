@@ -3,25 +3,29 @@ import {BrowserRouter,Routes,Route} from "react-router-dom"
 import React from "react";
 import Navbar from "./Component/Navbar";
 import Footer from "./Component/Footer";
-// import Login from "./Component/Login";
-
+import Login from "./Component/Login";
+import Signup from "./Component/Signup";
 function App() {
   return (
     <>
-    <Navbar/>
     <BrowserRouter>
+
+    <Navbar/>
     <Routes>
       <Route path="/" Component={Home} />
+      <Route path="/Login" Component={Login} />
+      <Route path="/Signup" Component={Signup} />
       {/* <Route to="/Shop" Component={Shop} /> */}
       {/* <Route to="/Term" Component={Term} /> */}
       {/* <Route to="/About" Component={About} /> */}
     </Routes>
-    </BrowserRouter>
    {/* <!-- Footer --> */}
    
    <Footer/>
 
     {/* <!-- Footer --> */}
+
+    </BrowserRouter>
     </>
   );
 }

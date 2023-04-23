@@ -1,17 +1,16 @@
 import React from 'react'
-
 import { Link } from "react-router-dom";
 
-function Login() {
+function Signup() {
   return (
     <>
      <div className="container">
       <div className="login-form">
         <form action="">
-          <h1>Login</h1>
+          <h1>Sign Up</h1>
           <p>
-            Already have an account? Login in or
-            <Link to="/signup">Sign Up</Link>
+            Please fill in this form to create an account. or
+            <Link to="/login">Login</Link>
           </p>
 
           <label for="email">Email</label>
@@ -38,20 +37,20 @@ function Login() {
               type="checkbox"
               checked="checked"
               name="remember"
-              style={{marginBottom:'15px'}}
-              // style="margin-bottom: 15px"
+            //   style="margin-bottom: 15px"
+              style={{marginBottom: '15px'}}
             />
             Remember me
           </label>
 
           <p>
             By creating an account you agree to our
-            <Link to="/">Terms & Privacy</Link>.
+            <Link to="/Privacy">Terms & Privacy</Link>.
           </p>
 
           <div className="buttons">
             <button type="button" className="cancelbtn">Cancel</button>
-            <button type="submit" className="signupbtn">Login</button>
+            <button type="submit" className="signupbtn">Sign Up</button>
           </div>
         </form>
       </div>
@@ -60,4 +59,4 @@ function Login() {
   )
 }
 
-export default Login
+export default Signup

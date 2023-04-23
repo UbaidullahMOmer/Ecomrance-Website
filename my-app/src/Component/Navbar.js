@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 
 function Navbar() {
@@ -9,53 +10,53 @@ function Navbar() {
           <p>Order Online Or Call Us: (001) 2222-55555</p>
           <ul className="d-flex">
             <li>
-              <a href="/">About Us</a>
+              <Link to="/">About Us</Link>
             </li>
             <li>
-              <a href="/">FAQ</a>
+              <Link to="/">FAQ</Link>
             </li>
             <li>
-              <a href="/">Contact</a>
+              <Link to="/">Contact</Link>
             </li>
           </ul>
         </div>
       </div>
       <div className="navigation">
         <div className="nav-center container d-flex">
-          <a href="index.html" className="logo">
+          <Link to="index.html" className="logo">
             <h1>Ecomrance</h1>
-          </a>
+          </Link>
 
           <ul className="nav-list d-flex">
             <li className="nav-item">
-              <a href="index.html" className="nav-link">
+              <Link to="/" className="nav-link">
                 Home
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="product.html" className="nav-link">
+              <Link to="/Shop" className="nav-link">
                 Shop
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#terms" className="nav-link">
+              <Link to="#terms" className="nav-link">
                 Terms
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#about" className="nav-link">
+              <Link to="#about" className="nav-link">
                 About
-              </a>
+              </Link>
             </li>
             <li className="nav-item">
-              <a href="#contact" className="nav-link">
+              <Link to="#contact" className="nav-link">
                 Contact
-              </a>
+              </Link>
             </li>
             <li className="icons d-flex">
-              <a href="login.html" className="icon">
+              <Link to="/login" className="icon">
                 <i className="bx bx-user"></i>
-              </a>
+              </Link>
               <div className="icon">
                 <i className="bx bx-search"></i>
               </div>
@@ -63,17 +64,17 @@ function Navbar() {
                 <i className="bx bx-heart"></i>
                 <span className="d-flex">0</span>
               </div>
-              <a href="cart.html" className="icon">
+              <Link to="cart.html" className="icon">
                 <i className="bx bx-cart"></i>
                 <span className="d-flex">0</span>
-              </a>
+              </Link>
             </li>
           </ul>
 
           <div className="icons d-flex">
-            <a href="login.html" className="icon">
+            <Link to="/login" className="icon">
               <i className="bx bx-user"></i>
-            </a>
+            </Link>
             <div className="icon">
               <i className="bx bx-search"></i>
             </div>
@@ -81,10 +82,10 @@ function Navbar() {
               <i className="bx bx-heart"></i>
               <span className="d-flex">0</span>
             </div>
-            <a href="cart.html" className="icon">
+            <Link to="cart.html" className="icon">
               <i className="bx bx-cart"></i>
               <span className="d-flex">0</span>
-            </a>
+            </Link>
           </div>
 
           <div className="hamburger">
