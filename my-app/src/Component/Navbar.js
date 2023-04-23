@@ -23,7 +23,7 @@ function Navbar() {
       </div>
       <div className="navigation">
         <div className="nav-center container d-flex">
-          <Link to="index.html" className="logo">
+          <Link to="/" className="logo">
             <h1>Ecomrance</h1>
           </Link>
 
@@ -34,7 +34,7 @@ function Navbar() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link to="/Shop" className="nav-link">
+              <Link to="/Product" className="nav-link">
                 Shop
               </Link>
             </li>
@@ -64,7 +64,7 @@ function Navbar() {
                 <i className="bx bx-heart"></i>
                 <span className="d-flex">0</span>
               </div>
-              <Link to="cart.html" className="icon">
+              <Link to="/cart" className="icon">
                 <i className="bx bx-cart"></i>
                 <span className="d-flex">0</span>
               </Link>
@@ -82,7 +82,7 @@ function Navbar() {
               <i className="bx bx-heart"></i>
               <span className="d-flex">0</span>
             </div>
-            <Link to="cart.html" className="icon">
+            <Link to="/cart" className="icon">
               <i className="bx bx-cart"></i>
               <span className="d-flex">0</span>
             </Link>
