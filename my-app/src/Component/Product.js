@@ -21,14 +21,14 @@ function Product() {
       <div className="product-center container">
         <div className="product-item">
           <div className="overlay">
-            <Link to="productDetails.html" className="product-thumb">
+            <Link to="/ProductDetail" className="product-thumb">
               <img src="./images/product-7.jpg" alt="" />
             </Link>
             <span className="discount">40%</span>
           </div>
           <div className="product-info">
             <span>MEN'S CLOTHES</span>
-            <Link to="productDetails.html">Concepts Solid Pink Men’s Polo</Link>
+            <Link to="/ProductDetail">Concepts Solid Pink Men’s Polo</Link>
             <h4>$150</h4>
           </div>
           <ul className="icons">
@@ -46,7 +46,7 @@ function Product() {
           </div>
           <div className="product-info">
             <span>MEN'S CLOTHES</span>
-            <Link to="">Concepts Solid Pink Men’s Polo</Link>
+            <Link to="/ProductDetail">Concepts Solid Pink Men’s Polo</Link>
             <h4>$150</h4>
           </div>
           <ul className="icons">
@@ -57,7 +57,7 @@ function Product() {
         </div>
         <div className="product-item">
           <div className="overlay">
-            <Link to="" className="product-thumb">
+            <Link to="/ProductDetail" className="product-thumb">
               <img src="./images/product-3.jpg" alt="" />
             </Link>
             <span className="discount">40%</span>
