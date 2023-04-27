@@ -1,6 +1,6 @@
 //  import Home from "./Component/Home"
 // import {BrowserRouter,Routes,Route} from "react-router-dom"
-import React from "react";
+import React, { useEffect, useState } from "react";
 // import Navbar from "./Component/Navbar";
 // import Footer from "./Component/Footer";
 // import Login from "./Component/Login";
@@ -9,7 +9,25 @@ import React from "react";
 // import Product from "./Component/Product";
 // import ProductDetail from "./Component/ProductDetail";
 import { Auth } from "./Fcomonent/auth";
+import { db } from "./Config/firebase";
+import { getDocs, collection } from "firebase/firestore";
 function App() {
+  const [movieList, setMovieList] = useState([])
+  const moviesCollectionRef = collection(db,"products")
+  useEffect(()=>{
+    const getMovieList = async() => {
+      //Read The Data
+      //SET THE MOVIES LIST
+      try{
+        const data = await getDocs(moviesCollectionRef);
+        console.log(data)
+      }catch(err){
+        console.log(err)
+      }
+    };
+
+    getMovieList();
+  }, []);
   return (
     <>
     {/* <BrowserRouter>
