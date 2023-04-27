@@ -1,17 +1,18 @@
-import Home from "./Component/Home"
-import {BrowserRouter,Routes,Route} from "react-router-dom"
+//  import Home from "./Component/Home"
+// import {BrowserRouter,Routes,Route} from "react-router-dom"
 import React from "react";
-import Navbar from "./Component/Navbar";
-import Footer from "./Component/Footer";
-import Login from "./Component/Login";
-import Signup from "./Component/Signup";
-import cart from "./Component/cart";
-import Product from "./Component/Product";
-import ProductDetail from "./Component/ProductDetail";
+// import Navbar from "./Component/Navbar";
+// import Footer from "./Component/Footer";
+// import Login from "./Component/Login";
+// import Signup from "./Component/Signup";
+// import cart from "./Component/cart";
+// import Product from "./Component/Product";
+// import ProductDetail from "./Component/ProductDetail";
+import { Auth } from "./Fcomonent/auth";
 function App() {
   return (
     <>
-    <BrowserRouter>
+    {/* <BrowserRouter>
 
     <Navbar/>
     <Routes>
@@ -21,14 +22,15 @@ function App() {
       <Route path="/cart" Component={cart} />
       <Route path="/Product" Component={Product} />
       <Route path="/ProductDetail" Component={ProductDetail} />
-    </Routes>
+    </Routes> */}
    {/* <!-- Footer --> */}
    
-   <Footer/>
+   {/* <Footer/> */}
 
     {/* <!-- Footer --> */}
 
-    </BrowserRouter>
+    {/* </BrowserRouter> */}
+    <Auth/>
     </>
   );
 }
