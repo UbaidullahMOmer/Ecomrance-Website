@@ -14,12 +14,12 @@ import { getDocs, collection, addDoc, deleteDoc, doc} from "firebase/firestore";
 function App() {
   const [movieList, setMovieList] = useState([]);
   const moviesCollectionRef = collection(db, "products");
+  
   const [newProductName, setNewProductName] = useState("");
   const [newProductDate, setNewProductDate] = useState(0);
   const [newProductPrice, setNewProductPrice] = useState("");
+
   const getMovieList = async () => {
-    //Read The Data
-    //SET THE MOVIES LIST
     try {
       const data = await getDocs(moviesCollectionRef);
       const filteredData = data.docs.map((doc) => ({
@@ -46,12 +46,13 @@ function App() {
     }
   };
   const deleteProducts = async (id) => {
-    const ProductsDoc = doc(db, "Products", id)
+    const ProductsDoc = doc(db, "products", id);
+    console.log(ProductsDoc);
     await deleteDoc(ProductsDoc);
   };
   useEffect(() => {
-    getMovieList();
-  },[onSubmitProduct,deleteProducts]);
+getMovieList();
+  },[]);
   return (
     <>
       <Auth />
@@ -92,7 +93,7 @@ function App() {
         ))}
       </div>
 
-      
+
     {/* <BrowserRouter>
 
     <Navbar/>
