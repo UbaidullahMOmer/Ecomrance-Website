@@ -12,17 +12,22 @@ import { Auth } from "./Fcomonent/auth";
 import { db } from "./Config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 function App() {
-  const [movieList, setMovieList] = useState([])
-  const moviesCollectionRef = collection(db,"products")
-  useEffect(()=>{
-    const getMovieList = async() => {
+  const [movieList, setMovieList] = useState([]);
+  const moviesCollectionRef = collection(db, "products");
+  useEffect(() => {
+    const getMovieList = async () => {
       //Read The Data
       //SET THE MOVIES LIST
-      try{
+      try {
         const data = await getDocs(moviesCollectionRef);
-        console.log(data)
-      }catch(err){
-        console.log(err)
+        const filteredData = data.docs.map((doc) => ({
+          ...doc.data(),
+          id: doc.id,
+        }));
+        setMovieList(filteredData);
+        // console.log(filteredData);
+      } catch (err) { 
+        console.log(err);
       }
     };
 
@@ -30,7 +35,7 @@ function App() {
   }, []);
   return (
     <>
-    {/* <BrowserRouter>
+      {/* <BrowserRouter>
 
     <Navbar/>
     <Routes>
@@ -41,14 +46,22 @@ function App() {
       <Route path="/Product" Component={Product} />
       <Route path="/ProductDetail" Component={ProductDetail} />
     </Routes> */}
-   {/* <!-- Footer --> */}
-   
-   {/* <Footer/> */}
+      {/* <!-- Footer --> */}
 
-    {/* <!-- Footer --> */}
+      {/* <Footer/> */}
 
-    {/* </BrowserRouter> */}
-    <Auth/>
+      {/* <!-- Footer --> */}
+
+      {/* </BrowserRouter> */}
+      <Auth />
+      <div>
+        {movieList.map((products)=> (
+          <div>
+            <h1>{products.ProductName}</h1>
+            <p>Release Date: {products.date} </p>
+          </div>
+        ))}
+      </div>
     </>
   );
 }
