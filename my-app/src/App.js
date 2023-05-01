@@ -51,8 +51,9 @@ function App() {
     await deleteDoc(ProductsDoc);
   };
   useEffect(() => {
-getMovieList();
-  },[]);
+    deleteProducts();
+    getMovieList();
+  },[deleteProducts]);
   return (
     <>
       <Auth />
