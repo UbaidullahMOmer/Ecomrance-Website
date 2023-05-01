@@ -9,8 +9,8 @@
 // import ProductDetail from "./Component/ProductDetail";
 import React, { useEffect, useState } from "react";
 import { Auth } from "./Fcomonent/auth";
-import { db } from "./Config/firebase";
-import { getDocs, collection, addDoc, deleteDoc, doc} from "firebase/firestore";
+import { db ,auth } from "./Config/firebase";
+import { getDocs, collection, addDoc, deleteDoc,updateDoc, doc} from "firebase/firestore";
 function App() {
   const [movieList, setMovieList] = useState([]);
   const moviesCollectionRef = collection(db, "products");
@@ -18,6 +18,9 @@ function App() {
   const [newProductName, setNewProductName] = useState("");
   const [newProductDate, setNewProductDate] = useState(0);
   const [newProductPrice, setNewProductPrice] = useState("");
+
+  // Update States 
+  const [updateProductName, setUpdateProductName] = useState("");
 
   const getMovieList = async () => {
     try {
@@ -39,6 +42,7 @@ function App() {
         ProductName: newProductName,
         Date: newProductDate,
         ProductPrice: newProductPrice, 
+        userId: auth?.currentUser?.uid,
        });
        getMovieList();
     }catch(err){
@@ -50,12 +54,18 @@ function App() {
     console.log(ProductsDoc);
     await deleteDoc(ProductsDoc);
   };
-  useEffect(() => {
+  const UpdateProductTitle = async (id) => {
+    const ProductsDoc = doc(db, "products", id);
+    console.log(ProductsDoc);
+    await updateDoc(ProductsDoc,{ ProductName: updateProductName });
+  };
+  useEffect(() => { 
     deleteProducts();
     getMovieList();
   },[deleteProducts]);
   return (
     <>
+    <center>
       <Auth />
       <div>
         <input
@@ -86,10 +96,17 @@ function App() {
       <div>
         {movieList.map((products) => (
           <div>
-            <h1>{products.ProductName}</h1>
+            <h1 style={{color:"red"}}>{products.ProductName}</h1>
             <p>Release Date: {products.date} </p>
             <p>Product Price: {products.ProductPrice}</p>
             <button onClick={() => deleteProducts(products.id)}>Delete</button>
+            <input type="text" placeholder="Change product Name" 
+            onChange={(e) => setUpdateProductName(e.target.value)} 
+            />
+            <button 
+            onClick={() => UpdateProductTitle(products.id)}
+            >Update Product Name
+            </button>
           </div>
         ))}
       </div>
@@ -113,6 +130,7 @@ function App() {
       {/* <!-- Footer --> */}
 
       {/* </BrowserRouter> */}
+      </center>
     </>
   );
 }
