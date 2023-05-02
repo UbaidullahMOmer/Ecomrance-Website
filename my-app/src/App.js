@@ -14,14 +14,12 @@ import { getDocs, collection, addDoc, deleteDoc,updateDoc, doc} from "firebase/f
 function App() {
   const [movieList, setMovieList] = useState([]);
   const moviesCollectionRef = collection(db, "products");
-  
   const [newProductName, setNewProductName] = useState("");
   const [newProductDate, setNewProductDate] = useState(0);
   const [newProductPrice, setNewProductPrice] = useState("");
-
   // Update States 
   const [updateProductName, setUpdateProductName] = useState("");
-
+  
   const getMovieList = async () => {
     try {
       const data = await getDocs(moviesCollectionRef);
@@ -59,6 +57,7 @@ function App() {
     console.log(ProductsDoc);
     await updateDoc(ProductsDoc,{ ProductName: updateProductName });
   };
+
   useEffect(() => { 
     deleteProducts();
     getMovieList();
@@ -97,7 +96,7 @@ function App() {
         {movieList.map((products) => (
           <div>
             <h1 style={{color:"red"}}>{products.ProductName}</h1>
-            <p>Release Date: {products.date} </p>
+            <p>Release Date: {products.Date} </p>
             <p>Product Price: {products.ProductPrice}</p>
             <button onClick={() => deleteProducts(products.id)}>Delete</button>
             <input type="text" placeholder="Change product Name" 
@@ -105,7 +104,8 @@ function App() {
             />
             <button 
             onClick={() => UpdateProductTitle(products.id)}
-            >Update Product Name
+            >
+              Update Product Name
             </button>
           </div>
         ))}
