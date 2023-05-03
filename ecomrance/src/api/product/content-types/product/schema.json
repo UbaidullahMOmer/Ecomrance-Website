@@ -23,6 +23,14 @@
     },
     "price": {
       "type": "biginteger"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
     }
   }
 }
