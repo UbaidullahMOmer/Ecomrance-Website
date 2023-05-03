@@ -18,19 +18,16 @@
     "UID": {
       "type": "uid"
     },
-    "date": {
-      "type": "biginteger"
-    },
     "price": {
       "type": "biginteger"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true,
-      "required": true
+      ]
     }
   }
 }

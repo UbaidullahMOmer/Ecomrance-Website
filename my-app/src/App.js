@@ -13,7 +13,7 @@ function App() {
   const [pData, setPData] = useState([]);
   const getMovieList  = async () => {
 
-      const url = 'http://localhost:1337/api/products';
+      const url = 'http://localhost:1337/api/products?populate=*';
 
       const response = await fetch (url);
               try {
@@ -41,6 +41,7 @@ function App() {
                       <h3>{data?.attributes?.date}</h3>
                       <h3>{data?.attributes?.price}</h3> 
                       <h3>{data?.attributes?.createdAt}</h3> 
+                      <img src={"http://localhost:1337" + data.attributes.image.data.attributes.url} alt="" />
                </card>
                  );
                    
