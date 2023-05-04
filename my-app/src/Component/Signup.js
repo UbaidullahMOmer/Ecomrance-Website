@@ -31,18 +31,27 @@ function Signup() {
             name="psw-repeat"
             required
           />
-
-          <label>
-            <input
-              type="checkbox"
-              checked="checked"
-              name="remember"
-            //   style="margin-bottom: 15px"
-              style={{marginBottom: '15px'}}
-            />
-            Remember me
-          </label>
-
+                   <label for="psw">First Name</label>
+          <input
+            type="text"
+            placeholder="Enter first name"
+            name="fname"
+            required
+          />
+          <label for="psw">Last Name</label>
+          <input
+            type="password"
+            placeholder="Enter last name"
+            name="lname"
+            required
+          />
+          <label for="psw">Mobile Number</label>
+          <input
+            type="password"
+            placeholder="Enter mobile number"
+            name="psw"
+            required
+          />
           <p>
             By creating an account you agree to our
             <Link to="/Privacy">Terms & Privacy</Link>.

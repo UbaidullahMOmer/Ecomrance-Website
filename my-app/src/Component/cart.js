@@ -105,7 +105,7 @@ function cart() {
 
       {/* LatestProduct */}
 
-      <LatestProduct />
+      <LatestProduct num={4} />
 
       {/* LatestProduct */}
     </>
