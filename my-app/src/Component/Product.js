@@ -51,13 +51,13 @@ function Product() {
                <div className="product-item">
                <div className="overlay">
                  <Link to="/ProductDetail" className="product-thumb">
-                   <img src={"http://localhost:1337" + data.attributes.image.data.attributes.url} alt="" />
+                   <img src={"http://localhost:1337" + data?.attributes?.image?.data?.attributes?.url} alt="" />
                  </Link>
-                 <span className="discount">{data.attributes.discount.data.attributes.title}</span>
+                 <span className="discount">{data?.attributes?.discount?.data?.attributes?.title}</span>
                </div>
                {/* http://localhost:1337/api/products?populate=* */}
                <div className="product-info">
-                 <span>{data?.attributes?.subcata.data.attributes.title}</span>
+                 <span>{data?.attributes?.subcata?.data?.attributes?.title}</span>
                  <Link to="/ProductDetail">{data?.attributes?.name}</Link>
                  <h4>${data?.attributes?.price}</h4>
                </div>
