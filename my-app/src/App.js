@@ -1,39 +1,39 @@
-// import Home from "./Component/Home"
-// import {BrowserRouter,Routes,Route} from "react-router-dom"
-// import Navbar from "./Component/Navbar";
-// import Footer from "./Component/Footer";
-// import Login from "./Component/Login";
-// import Signup from "./Component/Signup";
-// import cart from "./Component/cart";
-// import Product from "./Component/Product";
-// import ProductDetail from "./Component/ProductDetail";
+import Home from "./Component/Home"
+import {BrowserRouter,Routes,Route} from "react-router-dom"
+import Navbar from "./Component/Navbar";
+import Footer from "./Component/Footer";
+import Login from "./Component/Login";
+import Signup from "./Component/Signup";
+import cart from "./Component/cart";
+import Product from "./Component/Product";
+import ProductDetail from "./Component/ProductDetail";
 import React, { useEffect, useState } from "react";
 
 function App() {
-  const [pData, setPData] = useState([]);
-  const getMovieList  = async () => {
+  // const [pData, setPData] = useState([]);
+  // const getMovieList  = async () => {
 
-      const url = 'http://localhost:1337/api/products?populate=*';
+  //     const url = 'http://localhost:1337/api/products?populate=*';
 
-      const response = await fetch (url);
-              try {
-                  const responseJson = await response.json();
-                  const data = (responseJson);
-                  setPData(data.data);
-                  console.log(data.data)
-              } catch (err) {
-                  console.error(err);
-              }
+  //     const response = await fetch (url);
+  //             try {
+  //                 const responseJson = await response.json();
+  //                 const data = (responseJson);
+  //                 setPData(data.data);
+  //                 console.log(data.data)
+  //             } catch (err) {
+  //                 console.error(err);
+  //             }
 
-  };
+  // };
 
-  useEffect (()=> {
+  // useEffect (()=> {
      
-   getMovieList();
-  }, []);
+  //  getMovieList();
+  // }, []);
   return (
     <> 
-                 {pData.map((data) =>{
+                 {/* {pData.map((data) =>{
                  return(
                     <card >
                       <h1>{data?.attributes?.UID}</h1>
@@ -45,8 +45,8 @@ function App() {
                </card>
                  );
                    
-            })}
-     {/* <BrowserRouter>
+            })} */}
+     <BrowserRouter>
 
     <Navbar/>
     <Routes>
@@ -58,7 +58,7 @@ function App() {
       <Route path="/ProductDetail" Component={ProductDetail} />
     </Routes> 
       <Footer/>
-      </BrowserRouter> */}
+      </BrowserRouter>
       
     </>
   );

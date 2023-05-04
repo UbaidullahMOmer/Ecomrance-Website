@@ -1,0 +1,34 @@
+{
+  "kind": "collectionType",
+  "collectionName": "subcatas",
+  "info": {
+    "singularName": "subcata",
+    "pluralName": "subcatas",
+    "displayName": "subcata",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "UID": {
+      "type": "uid"
+    },
+    "catagory": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::catagory.catagory",
+      "inversedBy": "subcatas"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "subcata"
+    }
+  }
+}

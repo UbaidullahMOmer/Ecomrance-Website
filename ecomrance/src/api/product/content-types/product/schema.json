@@ -28,6 +28,18 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "subcata": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subcata.subcata",
+      "inversedBy": "products"
+    },
+    "discount": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::discount.discount",
+      "inversedBy": "products"
     }
   }
 }
