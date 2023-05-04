@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function LatestProduct() {
+function LatestProduct(props) {
 
   const [pData, setPData] = useState([]);
   const getMovieList  = async () => {
@@ -13,7 +13,7 @@ function LatestProduct() {
                   const responseJson = await response.json();
                   const data = (responseJson);
                   setPData(data.data);
-                  console.log(data.data)
+                  console.log(pData)
               } catch (err) { 
                   console.error(err);
               }
@@ -26,14 +26,19 @@ function LatestProduct() {
  
   return (
     <>
-       <section className="section featured">
-      <div className="top container">
+       <section className="section featured">~
+      <div style={{  display: "flex", alignItems: "center",  justifyContent: "center",  marginBottom: "4rem", fontSize: "2rem"}} className="to container">
+        <center></center>
         <h1>Latest Products</h1>
-        <Link to="/" className="view-more">View more</Link>
       </div>
       <div className="product-center container">
-      {pData.map((data, index) =>{
-                 if(index < 4){
+              {pData
+              .sort((a, b) => {
+                console.log(a)
+                return b.id - a.id;
+            })           
+                  .map((data, index) =>{
+                 if(index < props.num){
                   return(
                     <>
                  <div className="product-item">

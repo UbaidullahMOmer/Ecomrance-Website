@@ -78,7 +78,7 @@ function Product() {
     </section>
 
     {/* LatestProduct */}
-    <LatestProduct/>
+    <LatestProduct num = {4}/>
     {/* LatestProduct */}
     
     </>
