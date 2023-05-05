@@ -41,9 +41,7 @@ function Product() {
           </select>
           <span><i className="bx bx-chevron-down"></i></span>
         </form>
-           
       </div>
-   
       <div className="product-center container">
       {pData.map((data) =>{
                  return(
@@ -51,13 +49,13 @@ function Product() {
                <div className="product-item">
                <div className="overlay">
                  <Link to="/ProductDetail" className="product-thumb">
-                   <img src={"http://localhost:1337" + data.attributes.image.data.attributes.url} alt="" />
+                   <img src={"http://localhost:1337" + data?.attributes?.image?.data?.attributes?.url} alt="" />
                  </Link>
-                 <span className="discount">{data.attributes.discount.data.attributes.title}</span>
+                 <span className="discount">{data?.attributes?.discount?.data?.attributes?.title}</span>
                </div>
                {/* http://localhost:1337/api/products?populate=* */}
                <div className="product-info">
-                 <span>{data?.attributes?.subcata.data.attributes.title}</span>
+                 <span>{data?.attributes?.subcata?.data?.attributes?.title}</span>
                  <Link to="/ProductDetail">{data?.attributes?.name}</Link>
                  <h4>${data?.attributes?.price}</h4>
                </div>
@@ -70,24 +68,6 @@ function Product() {
                  </>
                  );
             })}
-        {/* <div className="product-item">
-          <div className="overlay">
-            <Link to="" className="product-thumb">
-              <img src="./images/product-2.jpg" alt="" />
-            </Link>
-            <span className="discount">40%</span>
-          </div>
-          <div className="product-info">
-            <span>MEN'S CLOTHES</span>
-            <Link to="/ProductDetail">Concepts Solid Pink Men’s Polo</Link>
-            <h4>$150</h4>
-          </div>
-          <ul className="icons">
-            <li><i className="bx bx-heart"></i></li>
-            <li><i className="bx bx-search"></i></li>
-            <li><i className="bx bx-cart"></i></li>
-          </ul>
-        </div> */}
       </div>
     </section>
     <section className="pagination">
@@ -98,10 +78,9 @@ function Product() {
     </section>
 
     {/* LatestProduct */}
-
-    <LatestProduct/>
-
+    <LatestProduct num = {4}/>
     {/* LatestProduct */}
+    
     </>
   )
 }

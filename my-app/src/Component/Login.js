@@ -24,26 +24,6 @@ function Login() {
             name="psw"
             required
           />
-
-          <label for="psw-repeat">Repeat Password</label>
-          <input
-            type="password"
-            placeholder="Repeat Password"
-            name="psw-repeat"
-            required
-          />
-
-          <label>
-            <input
-              type="checkbox"
-              checked="checked"
-              name="remember"
-              style={{marginBottom:'15px'}}
-              // style="margin-bottom: 15px"
-            />
-            Remember me
-          </label>
-
           <p>
             By creating an account you agree to our
             <Link to="/">Terms & Privacy</Link>.

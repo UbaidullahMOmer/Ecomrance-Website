@@ -1,4 +1,5 @@
 import React from 'react'
+import LatestProduct from './LatestProduct'
 // import Navbar from "./Navbar.js"
 // import Footer from './Footer.js'
 // import "./style.css"
@@ -78,8 +79,10 @@ function Home() {
      </div>
    </section>
 
+    <LatestProduct num = {8} />
+
    {/* <!-- New Arrivals --> */}
-   <section className="section new-arrival">
+   {/* <section className="section new-arrival">
      <div className="title">
        <h1>NEW ARRIVALS</h1>
        <p>All the latest picked from designer of our store</p>
@@ -227,7 +230,7 @@ function Home() {
          </ul>
        </div>
      </div>
-   </section>
+   </section> */}
 
 
    {/* <!-- Promo --> */}
