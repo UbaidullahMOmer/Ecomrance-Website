@@ -40,6 +40,12 @@
       "relation": "manyToOne",
       "target": "api::discount.discount",
       "inversedBy": "products"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "pdetail": {
+      "type": "text"
     }
   }
 }
