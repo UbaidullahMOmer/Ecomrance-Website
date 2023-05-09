@@ -29,9 +29,9 @@
         "images"
       ]
     },
-    "subcata": {
+    "subcatas": {
       "type": "relation",
-      "relation": "manyToOne",
+      "relation": "manyToMany",
       "target": "api::subcata.subcata",
       "inversedBy": "products"
     },
@@ -46,6 +46,12 @@
     },
     "pdetail": {
       "type": "text"
+    },
+    "catagory": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::catagory.catagory",
+      "inversedBy": "product"
     }
   }
 }

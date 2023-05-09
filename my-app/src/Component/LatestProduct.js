@@ -13,7 +13,7 @@ function LatestProduct(props) {
                   const responseJson = await response.json();
                   const data = (responseJson);
                   setPData(data.data);
-                  console.log(pData)
+                  // console.log(pData)
               } catch (err) { 
                   console.error(err);
               }
@@ -34,7 +34,7 @@ function LatestProduct(props) {
       <div className="product-center container">
               {pData
               .sort((a, b) => {
-                console.log(a)
+                // console.log(a)
                 return b.id - a.id;
             })           
                   .map((data, index) =>{

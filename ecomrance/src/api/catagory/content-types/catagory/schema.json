@@ -20,6 +20,12 @@
       "relation": "oneToMany",
       "target": "api::subcata.subcata",
       "mappedBy": "catagory"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product",
+      "mappedBy": "catagory"
     }
   }
 }

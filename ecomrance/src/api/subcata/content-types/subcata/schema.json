@@ -18,17 +18,17 @@
     "UID": {
       "type": "uid"
     },
-    "products": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product.product",
-      "mappedBy": "subcata"
-    },
     "catagory": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::catagory.catagory",
       "inversedBy": "subcatas"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::product.product",
+      "mappedBy": "subcatas"
     }
   }
 }

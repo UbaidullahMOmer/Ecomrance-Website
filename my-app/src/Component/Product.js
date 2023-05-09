@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import LatestProduct from './LatestProduct';
 function Product() {
-
-    const [pData, setPData] = useState([]);
+  const navigate = useNavigate();
+  let nid = 1;
+  const [pData, setPData] = useState([]);
   const getMovieList  = async () => {
 
       const url = 'http://localhost:1337/api/products?populate=*';
@@ -13,7 +14,7 @@ function Product() {
                   const responseJson = await response.json();
                   const data = (responseJson);
                   setPData(data.data);
-                  console.log(data.data)
+                  // console.log(data.data)
               } catch (err) { 
                   console.error(err);
               }
@@ -21,11 +22,13 @@ function Product() {
   };
 
   useEffect (()=> {
-     
+    
    getMovieList();
   }, []);
 
-
+  function handleClick() {
+    navigate("/ProductDetail",{state: {id:nid}});
+  }
   return (
     <>
      <section className="section all-products" id="products">
@@ -44,6 +47,10 @@ function Product() {
       </div>
       <div className="product-center container">
       {pData.map((data) =>{
+        // useEffect(()=>{
+        //   setNid(pData.id)
+        // },[])
+        nid = data.id;
                  return(
                   <>
                <div className="product-item">
@@ -56,7 +63,7 @@ function Product() {
                {/* http://localhost:1337/api/products?populate=* */}
                <div className="product-info">
                  <span>{data?.attributes?.subcata?.data?.attributes?.title}</span>
-                 <Link to="/ProductDetail">{data?.attributes?.name}</Link>
+                 <Link  onClick={handleClick}>{data?.attributes?.name}</Link>
                  <h4>${data?.attributes?.price}</h4>
                </div>
                <ul className="icons">
