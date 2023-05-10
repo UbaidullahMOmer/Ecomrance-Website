@@ -3,7 +3,6 @@ import { Link,useNavigate } from "react-router-dom";
 import LatestProduct from './LatestProduct';
 function Product() {
   const navigate = useNavigate();
-  let nid = 1;
   const [pData, setPData] = useState([]);
   const getMovieList  = async () => {
 
@@ -15,6 +14,7 @@ function Product() {
                   const data = (responseJson);
                   setPData(data.data);
                   // console.log(data.data)
+                  // setNid(pData.data.id)
               } catch (err) { 
                   console.error(err);
               }
@@ -26,8 +26,8 @@ function Product() {
    getMovieList();
   }, []);
 
-  function handleClick() {
-    navigate("/ProductDetail",{state: {id:nid}});
+  function handleClick(pid) {
+    navigate("/ProductDetail",{state: {id:pid}});
   }
   return (
     <>
@@ -47,10 +47,6 @@ function Product() {
       </div>
       <div className="product-center container">
       {pData.map((data) =>{
-        // useEffect(()=>{
-        //   setNid(pData.id)
-        // },[])
-        nid = data.id;
                  return(
                   <>
                <div className="product-item">
@@ -63,7 +59,7 @@ function Product() {
                {/* http://localhost:1337/api/products?populate=* */}
                <div className="product-info">
                  <span>{data?.attributes?.subcata?.data?.attributes?.title}</span>
-                 <Link  onClick={handleClick}>{data?.attributes?.name}</Link>
+                 <botton   onClick={()=>handleClick(data?.id)}>{data?.attributes?.name}</botton>
                  <h4>${data?.attributes?.price}</h4>
                </div>
                <ul className="icons">

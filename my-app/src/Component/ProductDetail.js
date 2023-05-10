@@ -9,7 +9,7 @@ function ProductDetail() {
   
   const [pData, setPData] = useState([]);
 
-console.log(location)
+// console.log(location)
   
   const getMovieList = async () => {
     const url = "http://localhost:1337/api/products?populate=*";
@@ -23,11 +23,12 @@ console.log(location)
       console.error(err);
     }
   };
-
+  // console.log(location)
   useEffect(() => {
     getMovieList();
     setRid(location.state.id);
   }, []);
+  // console.log(rid +"a")
   // console.log(pData[0].attributes.catagory.data.attributes.title);
   return (
     <>
