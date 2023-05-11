@@ -10,64 +10,6 @@ function cart() {
             <th>Product</th>
             <th>Quantity</th>
             <th>Subtotal</th>
-            <th>Delete</th>
-          </tr>
-          <tr>
-            <td>
-              <div className="cart-info">
-                <img src="./images/product-2.jpg" alt="" />
-                <div>
-                  <p>Boy’s T-Shirt</p>
-                  <span>Price: $50.00</span> <br />
-                  <Link to="/">remove</Link>
-                </div>
-              </div>
-            </td>
-            <td><input type="number" value="1" min="1" /></td>
-            <td>$50.00</td>
-            
-          </tr>
-          <tr>
-            <td>
-              <div className="cart-info">
-                <img src="./images/product-3.jpg" alt="" />
-                <div>
-                  <p>Boy’s T-Shirt</p>
-                  <span>Price: $90.00</span> <br />
-                  <Link to="/">remove</Link>
-                </div>
-              </div>
-            </td>
-            <td><input type="number" value="1" min="1" /></td>
-            <td>$90.00</td>
-          </tr>
-          <tr>
-            <td>
-              <div className="cart-info">
-                <img src="./images/product-4.jpg" alt="" />
-                <div>
-                  <p>Boy’s T-Shirt</p>
-                  <span>Price: $60.00</span> <br />
-                  <Link to="/">remove</Link>
-                </div>
-              </div>
-            </td>
-            <td><input type="number" value="1" min="1" /></td>
-            <td>$60.00</td>
-          </tr>
-          <tr>
-            <td>
-              <div className="cart-info">
-                <img src="./images/product-5.jpg" alt="" />
-                <div>
-                  <p>Boy’s T-Shirt</p>
-                  <span>Price: $60.00</span> <br />
-                  <Link to="/">remove</Link>
-                </div>
-              </div>
-            </td>
-            <td><input type="number" value="1" min="1" /></td>
-            <td>$60.00</td>
           </tr>
           <tr>
             <td>
