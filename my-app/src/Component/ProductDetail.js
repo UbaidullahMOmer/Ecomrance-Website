@@ -10,7 +10,7 @@ function ProductDetail() {
   const location = useLocation();
 
   const [qnt, setQnt] = useState('');
-  // const [lastName, setLastName] = useState('');
+  const [pid, setPid] = useState('');
 
   const [pData, setPData] = useState([]);
 
@@ -37,6 +37,15 @@ function ProductDetail() {
   // console.log(pData[0].attributes.catagory.data.attributes.title);
   function Showpoup() {
     alert("I am an alert box!");
+  }
+  function Addcart(event){
+    setPid(event)
+    console.log("product id " + pid + "product qut" + qnt )
+    // Showpoup();
+  }
+  function onChangevalue(event){
+    console.log(event.target.value)
+    setQnt(event.target.value)
   }
   return (
     <>
@@ -73,17 +82,17 @@ function ProductDetail() {
                         </div>
                       </form> */}
                       <form className="form">
-                        <label htmlFor="">{"TotalQuntaty" + p?.attributes?.quantity}</label>
-                        <input type="number" name="" value="1"/>
-                        {/* <button onClick={Showpoup} type="submit" className="addCart">
+                        <label htmlFor="">TotalQuntaty {p?.attributes?.quantity}</label>
+                        <input  type="number" name="" value={qnt} onChange={(e)=>onChangevalue(e)} placeholder="0"/>
+                        <button type="button" onClick={()=>Addcart(p?.id)} className="addCart">
                           Add To Cart
-                        </button> */}
+                        </button>
                         {/* <Popup className="addCart" type="simpleQuery" trigger={<button> Trigger</button>} position="right center">
                           <div>Add To Cart</div>
                         </Popup> */}
-                        <Link to="/cart" onClick={Showpoup} className="buynow">
+                        {/* <Link to="/cart" onClick={Showpoup} className="buynow">
                           Buy Now
-                        </Link>
+                        </Link> */}
                       </form>
                       <h3>Product Detail</h3>
                       <p>

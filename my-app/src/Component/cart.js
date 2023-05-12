@@ -1,7 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import LatestProduct from './LatestProduct';
-function cart() {
+function Cart() {
+  // const [prodata, setProdata] = useState(
+  //   [
+  //     rname = "T-shirt",
+  //     price = "500$",
+  //     qnt = "4"
+  //   ])
+  // const prodata = [
+  //   rname : "T-shirt",
+    
+  // ]
+  const [prodata, setProdata] = useState({
+    id: 3,
+    name: 'T-shirt',
+    price: '250',
+    qnt: 3,
+    catagory: 'clothes'
+});
   return (
     <>
       <div className="container cart">
@@ -16,20 +33,20 @@ function cart() {
               <div className="cart-info">
                 <img src="./images/product-6.jpg" alt="" />
                 <div>
-                  <p>Boy’s T-Shirt</p>
-                  <span>Price: $60.00</span> <br />
-                  <Link to="/">remove</Link>
+                  <p>{prodata.name}</p>
+                  <span>Price: ${prodata.price}</span> <br />
+                  <Link to="">remove</Link>
                 </div>
               </div>
             </td>
-            <td><input type="number" value="1" min="1" /></td>
-            <td>$60.00</td>
+            <td><input type="number" value={prodata.qnt} min="1" /></td>
+            <td>${prodata.price * prodata.qnt}</td>
           </tr>
         </table>
         <div className="total-price">
           <table>
             <tr>
-              <td>Subtotal</td>
+              <td>Subtotal</td> 
               <td>$200</td>
             </tr>
             <tr>
@@ -54,4 +71,4 @@ function cart() {
   )
 }
 
-export default cart
+export default Cart

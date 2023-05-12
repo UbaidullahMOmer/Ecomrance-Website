@@ -4,7 +4,7 @@ import Navbar from "./Component/Navbar";
 import Footer from "./Component/Footer";
 import Login from "./Component/Login";
 import Signup from "./Component/Signup";
-import cart from "./Component/cart";
+import cart from "./Component/Cart";
 import Product from "./Component/Product";
 import ProductDetail from "./Component/ProductDetail";
 import React, { useEffect, useState } from "react";
