@@ -1,23 +1,28 @@
 import React, { useEffect, useState } from "react";
 
-import { Link, useLocation } from "react-router-dom";
+import {Link, useLocation } from "react-router-dom";
 import LatestProduct from "./LatestProduct";
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 
 function ProductDetail() {
   const [rid, setRid] = useState();
   const location = useLocation();
-  
+
+  const [qnt, setQnt] = useState('');
+  // const [lastName, setLastName] = useState('');
+
   const [pData, setPData] = useState([]);
 
-// console.log(location)
-  
+  // console.log(location)
+
   const getMovieList = async () => {
     const url = "http://localhost:1337/api/products?populate=*";
     const response = await fetch(url);
     try {
       const responseJson = await response.json();
       const data = responseJson;
-      setPData(data.data); 
+      setPData(data.data);
       // console.log(data.data);
     } catch (err) {
       console.error(err);
@@ -26,15 +31,18 @@ function ProductDetail() {
   // console.log(location)
   useEffect(() => {
     getMovieList();
-    setRid(location.state.id);
+    setRid(location?.state?.id);
   }, []);
   // console.log(rid +"a")
   // console.log(pData[0].attributes.catagory.data.attributes.title);
+  function Showpoup() {
+    alert("I am an alert box!");
+  }
   return (
     <>
       <section className="section product-detail">
         {pData?.map((p) => {
-          if (p.id === rid) { 
+          if (p?.id === rid) {
             return (
               <>
                 <section className="section product-detail">
@@ -48,7 +56,7 @@ function ProductDetail() {
                       <span>{p?.attributes?.catagory?.data?.attributes?.title}/{p?.attributes?.subcatas?.data[0]?.attributes?.title}</span>
                       <h1>{p?.attributes?.name}</h1>
                       <div className="price">${p?.attributes?.price}</div>
-                      <form>
+                      {/* <form>
                         <div>
                           <select>
                             <option value="Select Size" selected disabled>
@@ -63,11 +71,18 @@ function ProductDetail() {
                             <i className="bx bx-chevron-down"></i>
                           </span>
                         </div>
-                      </form>
+                      </form> */}
                       <form className="form">
-                        <input type="text" placeholder={p?.attributes?.quantity} />
-                        <Link to="cart.html" className="addCart">
+                        <label htmlFor="">{"TotalQuntaty" + p?.attributes?.quantity}</label>
+                        <input type="number" name="" value="1"/>
+                        {/* <button onClick={Showpoup} type="submit" className="addCart">
                           Add To Cart
+                        </button> */}
+                        {/* <Popup className="addCart" type="simpleQuery" trigger={<button> Trigger</button>} position="right center">
+                          <div>Add To Cart</div>
+                        </Popup> */}
+                        <Link to="/cart" onClick={Showpoup} className="buynow">
+                          Buy Now
                         </Link>
                       </form>
                       <h3>Product Detail</h3>

@@ -1300,17 +1300,24 @@ th:last-child {
 .product-detail .form input {
   padding: 0.8rem;
   text-align: center;
-  width: 3.5rem;
+  width: 13rem;
   margin-right: 2rem;
 }
-
+ 
 .product-detail .form .addCart {
   background: var(--green);
-  padding: 0.8rem 4rem;
+  padding: 0.8rem 2rem;
   color: #fff;
-  border-radius: 3rem;
+  margin-right: 2rem;
+  border-radius: 0.5rem;
 }
-
+.product-detail .buynow { 
+  background: var(--green);
+  padding: 0.8rem 2rem;
+  margin-bottom: 10px;
+  color: #fff;
+  border-radius: 0.5rem;
+}
 .product-detail h3 {
   text-transform: uppercase;
   margin-bottom: 2rem;
