@@ -35,7 +35,7 @@ function LatestProduct(props) {
               {pData
               .sort((a, b) => {
                 // console.log(a)
-                return b.id - a.id;
+                return b?.id - a?.id;
             })           
                   .map((data, index) =>{
                  if(index < props.num){

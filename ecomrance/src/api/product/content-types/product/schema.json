@@ -44,14 +44,14 @@
     "quantity": {
       "type": "integer"
     },
-    "pdetail": {
-      "type": "text"
-    },
     "catagory": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::catagory.catagory",
       "inversedBy": "products"
+    },
+    "pdetail": {
+      "type": "richtext"
     }
   }
 }

@@ -54,7 +54,7 @@ function Product() {
                  <Link to="/ProductDetail" className="product-thumb">
                    <img src={"http://localhost:1337" + data?.attributes?.image?.data?.attributes?.url} alt="" />
                  </Link>
-                 <span className="discount">{data?.attributes?.discount?.data?.attributes?.title}</span>
+                 <span className="discount">{data?.attributes?.discount?.data?.attributes?.title}%off</span>
                </div>
                {/* http://localhost:1337/api/products?populate=* */}
                <div className="product-info">
