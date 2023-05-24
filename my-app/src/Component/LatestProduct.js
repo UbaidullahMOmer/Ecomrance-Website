@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
 function LatestProduct(props) {
-
+  const navigate = useNavigate();
   const [pData, setPData] = useState([]);
   const getMovieList  = async () => {
 
@@ -23,7 +22,9 @@ function LatestProduct(props) {
      
     getMovieList();
    }, []);
- 
+   function handleClick(pid) {
+    navigate("/ProductDetail", { state: { id: pid } });
+  }
   return (
     <>
        <section className="section featured">~
@@ -36,9 +37,8 @@ function LatestProduct(props) {
               .sort((a, b) => {
                 // console.log(a)
                 return b?.id - a?.id;
-            })           
-                  .map((data, index) =>{
-                 if(index < props.num){
+            }).map((data, index) =>{
+                 if(index < props.num){ 
                   return(
                     <>
                  <div className="product-item">
@@ -51,7 +51,9 @@ function LatestProduct(props) {
                  {/* http://localhost:1337/api/products?populate=* */}
                  <div className="product-info">
                    <span>{data?.attributes?.subcata?.data?.attributes?.title}</span>
-                   <Link to="/ProductDetail">{data?.attributes?.name}</Link>
+                   <botton onClick={() => handleClick(data?.id)}>
+                      {data?.attributes?.name}
+                    </botton>
                    <h4>${data?.attributes?.price}</h4>
                  </div>
                  <ul className="icons">

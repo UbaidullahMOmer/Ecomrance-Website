@@ -41,6 +41,8 @@ function ProductDetail() {
   function Addcart(event){
     setPid(event)
     console.log("product id " + pid + "product qut" + qnt )
+    
+    localStorage.setItem("id",pid)
     // Showpoup();
   }
   function onChangevalue(event){

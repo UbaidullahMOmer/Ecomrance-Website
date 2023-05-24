@@ -24,7 +24,9 @@ function Product() {
 
   function handleClick(pid) {
     navigate("/ProductDetail", { state: { id: pid } });
+  
   }
+  
   return (
     <>
       <section className="section all-products" id="products">
@@ -38,7 +40,7 @@ function Product() {
               <option value="4">Sort By Sale</option>
               <option value="5">Sort By Rating</option>
             </select>
-            <span>
+            <span> 
               <i className="bx bx-chevron-down"></i>
             </span>
           </form>
@@ -46,8 +48,8 @@ function Product() {
         <div className="product-center container">
           {pData.map((data) => {
             return (
-              <>
-                <div className="product-item">
+              
+                <div key={data?.id} className="product-item">
                   <div className="overlay">
                     <Link to="/ProductDetail" className="product-thumb">
                       <img
@@ -83,8 +85,7 @@ function Product() {
                     </li>
                   </ul>
                 </div>
-              </>
-            );
+                  );
           })}
         </div>
       </section>

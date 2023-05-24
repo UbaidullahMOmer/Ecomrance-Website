@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import LatestProduct from './LatestProduct';
 function Cart() {
+  // const [qnt, setQnt] = useState();
   // const [prodata, setProdata] = useState(
   //   [
   //     rname = "T-shirt",
@@ -19,6 +20,13 @@ function Cart() {
     qnt: 3,
     catagory: 'clothes'
 });
+function cqnt(event){
+// setProdata.qnt(event)
+setProdata(prevState => ({
+  ...prevState,
+  qnt: event.target.value
+}));
+}
   return (
     <>
       <div className="container cart">
@@ -39,7 +47,7 @@ function Cart() {
                 </div>
               </div>
             </td>
-            <td><input type="number" value={prodata.qnt} min="1" /></td>
+            <td><input type="number" value={prodata.qnt} onChange={(e)=>cqnt(e)} min="1" /></td>
             <td>${prodata.price * prodata.qnt}</td>
           </tr>
         </table>
