@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 
-import {Link, useLocation } from "react-router-dom";
+import {useLocation } from "react-router-dom";
 import LatestProduct from "./LatestProduct";
-import Popup from 'reactjs-popup';
+// import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 
 function ProductDetail() {
   const [rid, setRid] = useState();
   const location = useLocation();
-
-  const [qnt, setQnt] = useState('');
-  const [pid, setPid] = useState('');
-
+  
+  // const [qnt, setQnt] = useState('');
+  // const [pid, setPid] = useState('');
   const [pData, setPData] = useState([]);
 
   // console.log(location)
@@ -35,20 +34,64 @@ function ProductDetail() {
   }, []);
   // console.log(rid +"a")
   // console.log(pData[0].attributes.catagory.data.attributes.title);
-  function Showpoup() {
-    alert("I am an alert box!");
-  }
-  function Addcart(event){
-    setPid(event)
-    console.log("product id " + pid + "product qut" + qnt )
-    
-    localStorage.setItem("id",pid)
-    // Showpoup();
-  }
+  // function Showpoup() {
+  //   alert("I am an alert box!");
+  // }
+  const [prodata, setProdata] = useState({
+    id: "",
+    qnt: "",
+});
+  // const [sdata, setSdata] = useState([])
+
+// function Addtocart(event){
+//   // setProdata.qnt(event)
+//   setProdata(prevState => ({
+//     ...prevState,
+//     id: event,
+//     qnt: qnt
+//   }));
+//   }
+
   function onChangevalue(event){
-    console.log(event.target.value)
-    setQnt(event.target.value)
+    // console.log(event.target.value)
+    // console.log(event.target.name)
+    setProdata((prodata)=> ({...prodata, [event.target.name]: event.target.value}))
   }
+  // // kll
+  // // function Addcart(id){
+  // //   // setPid(event)
+  // //   console.log(id)
+  // //   // setSdata([...sdata, prodata])
+  // //   // console.log("product id " + pid + "product qut" + qnt ) 
+  // //   const obj = [
+  // //   {
+  // //     "product_id": id,
+  // //     "product_qty": prodata.qnt
+  // //   }
+  // //   ]
+  // //   // Addtocart(id);
+  // //   localStorage.setItem("product", JSON.stringify(obj) )
+  // //   // localStorage.setItem("product_qty", qnt)
+  // //   // Showpoup();
+  // // }
+  function Addcart(id) {
+    const existingData = localStorage.getItem('product');
+    let newData = [];
+  
+    if (existingData) {
+      newData = JSON.parse(existingData);
+    }
+  
+    const newProduct = {
+      product_id: id,
+      product_qty: prodata.qnt,
+    };
+  
+    newData.push(newProduct);
+    localStorage.setItem('product', JSON.stringify(newData));
+  }
+  
+  // console.log(sdata)
   return (
     <>
       <section className="section product-detail">
@@ -84,8 +127,8 @@ function ProductDetail() {
                         </div>
                       </form> */}
                       <form className="form">
-                        <label htmlFor="">TotalQuntaty {p?.attributes?.quantity}</label>
-                        <input  type="number" name="" value={qnt} onChange={(e)=>onChangevalue(e)} placeholder="0"/>
+                        <label htmlFor="">TotalQuntaty {p?.attributes?.quantity}</label> 
+                        <input  type="number" name="qnt" value={prodata.qnt} onChange={(e)=>onChangevalue(e)} placeholder="0"/>
                         <button type="button" onClick={()=>Addcart(p?.id)} className="addCart">
                           Add To Cart
                         </button>
