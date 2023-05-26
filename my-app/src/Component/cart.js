@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { Link } from "react-router-dom";
 import LatestProduct from './LatestProduct';
 function Cart() {
@@ -21,7 +21,7 @@ console.log(data)
                 console.error(err); 
             }
 
-};
+}; 
 //   // const [qnt, setQnt] = useState();
 //   // const [prodata, setProdata] = useState(
 //   //   [
@@ -47,6 +47,10 @@ setProdata(prevState => ({
   qnt: event.target.value
 }));
 }
+useEffect(() => {
+  getMovieList();
+}, []);
+
   return (
     <>
       <div className="container cart">
@@ -57,10 +61,10 @@ setProdata(prevState => ({
             <th>Subtotal</th>
           </tr>
           {/* Add Cart Item */}
-         {
-           data.map((product_id)=> {
-            pData.map(()=> {
-            return(
+       
+        
+          {pData?.map((data) => {
+            return( 
               
               <tr>
               <td>
@@ -77,10 +81,7 @@ setProdata(prevState => ({
               <td>${prodata.price * prodata.qnt}</td>
             </tr>
             )})
-          })
-         
-         }
-
+          }
         </table>
         <div className="total-price">
           <table>
