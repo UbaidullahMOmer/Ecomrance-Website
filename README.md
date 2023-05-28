@@ -1,4 +1,4 @@
-### Ecomrance Website
+## Ecomrance Website
 This is the README file for the Ecomrance website, which is built using React.js and Strapi. The website consists of two main folders: my-app and ecomrance.
 
 ### Table of Contents
@@ -42,10 +42,10 @@ Follow the on-screen instructions to set up the initial admin account and config
 Note: Please refer to the respective documentation for React.js and Strapi for more detailed instructions on development, deployment, and customization.
 
 ### FAQs
-## Q: Can I customize the Ecomrance website?
+### Q: Can I customize the Ecomrance website?
 A: Yes, both the React.js frontend and the Strapi backend are highly customizable. You can modify the code, add new features, or customize the design to fit your specific requirements.
 
-## Q: How do I deploy the Ecomrance website?
+### Q: How do I deploy the Ecomrance website?
 A: The deployment process may vary depending on your hosting provider and preferences. You can build the React.js frontend and deploy it to a static hosting service, such as Netlify or Vercel. For the Strapi backend, you can deploy it to a platform that supports Node.js applications, such as Heroku or AWS.
 
 ### Contact
