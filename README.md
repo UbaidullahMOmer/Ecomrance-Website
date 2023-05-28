@@ -1,7 +1,7 @@
 <h1>Ecomrance Website<h1/>
 This is the README file for the Ecomrance website, which is built using React.js and Strapi. The website consists of two main folders: my-app and ecomrance.
 
-###Table of Content
+### Table of Contents
 - Folder Structure
 - React.js
 - Strapi
