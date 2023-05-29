@@ -31,6 +31,21 @@ function App() {
      
   //  getMovieList();
   // }, []);
+  const [cartItemCount, setCartItemCount] = useState(0);
+
+  useEffect(() => { 
+    // Retrieve cart data from localStorage
+    const cartData = localStorage.getItem("product");
+    if (cartData) {
+      const cartItems = JSON.parse(cartData);
+      setCartItemCount(cartItems.length);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Update cart item count in localStorage
+    localStorage.setItem("cartItemCount", cartItemCount.toString());
+  }, []);
   return (
     <> 
                  {/* {pData.map((data) =>{
@@ -48,7 +63,7 @@ function App() {
             })} */}
      <BrowserRouter>
 
-    <Navbar/>
+    <Navbar num={cartItemCount}/> 
     <Routes>
       <Route path="/" Component={Home} />
       <Route path="/Login" Component={Login} />

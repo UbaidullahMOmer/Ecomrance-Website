@@ -1,8 +1,7 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import React from "react";
+function Navbar(props) {
 
-
-function Navbar() {
   return (
     <>
       <div className="top-nav">
@@ -53,22 +52,7 @@ function Navbar() {
                 Contact
               </Link>
             </li>
-            <li className="icons d-flex">
-              <Link to="/login" className="icon">
-                <i className="bx bx-user"></i>
-              </Link>
-              <div className="icon">
-                <i className="bx bx-search"></i>
-              </div>
-              <div className="icon">
-                <i className="bx bx-heart"></i>
-                <span className="d-flex">0</span>
-              </div>
-              <Link to="/cart" className="icon">
-                <i className="bx bx-cart"></i>
-                <span className="d-flex">0</span>
-              </Link>
-            </li>
+
           </ul>
 
           <div className="icons d-flex">
@@ -84,7 +68,7 @@ function Navbar() {
             </div>
             <Link to="/cart" className="icon">
               <i className="bx bx-cart"></i>
-              <span className="d-flex">0</span>
+              <span className="d-flex">{props.num}</span>
             </Link>
           </div>
 
