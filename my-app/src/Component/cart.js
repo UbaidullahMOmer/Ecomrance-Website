@@ -8,7 +8,10 @@ function Cart() {
   const dat = JSON.parse(sprodata);
   const [data, setData] = useState(dat);
   const [prodata, setProdata] = useState([]);
-
+  const [subtotal, setSubtotal] = useState(0);
+  const tax = 50;
+  const [total, setTotal] = useState(0);
+  
   const getMovieList = async () => {
     const url = "http://localhost:1337/api/products?populate=*"; 
     try {
@@ -61,7 +64,18 @@ function Cart() {
     );
     localStorage.setItem("product", JSON.stringify(updatedLocalStorageData));
   }
-
+  useEffect(() => {
+    if (prodata.length > 0) {
+      const sub = prodata.reduce((acc, item) => {
+        return acc + item.prodata.price * item.product_qty;
+      }, 0);
+      setSubtotal(sub);
+  
+      const t = sub + tax;
+      setTotal(t);
+    }
+  }, [prodata]);
+  
   return (
     <>
       <div className="container cart">
@@ -100,22 +114,23 @@ function Cart() {
           </tbody>
         </table>
         <div className="total-price">
-          <table>
-            <tbody>
-              <tr>
-                <td>Subtotal</td>
-                <td>$200</td>
-              </tr>
-              <tr>
-                <td>Tax</td>
-                <td>$50</td>
-              </tr>
-              <tr>
-                <td>Total</td>
-                <td>$250</td>
-              </tr>
-            </tbody>
-          </table>
+        <table>
+  <tbody>
+    <tr>
+      <td>Subtotal</td>
+      <td>${subtotal}</td>
+    </tr>
+    <tr>
+      <td>Tax</td>
+      <td>${tax}</td>
+    </tr>
+    <tr>
+      <td>Total</td>
+      <td>${total}</td>
+    </tr>
+  </tbody>
+</table>
+
           <Link to="/" className="checkout btn">
             Proceed To Checkout
           </Link>
