@@ -8,7 +8,8 @@ import cart from "./Component/Cart";
 import Product from "./Component/Product";
 import ProductDetail from "./Component/ProductDetail";
 import React, { useEffect, useState } from "react";
-
+import Aboutus from "./Component/About/Aboutus";
+import Catagory from "./Component/Catagories/Catagory";
 function App() {
   // const [pData, setPData] = useState([]);
   // const getMovieList  = async () => {
@@ -71,6 +72,8 @@ function App() {
       <Route path="/cart" Component={cart} />
       <Route path="/Product" Component={Product} />
       <Route path="/ProductDetail" Component={ProductDetail} />
+      <Route path="/About" Component={Aboutus} />
+      <Route path="/Catagory" Component={Catagory} />
     </Routes> 
       <Footer/>
       </BrowserRouter>

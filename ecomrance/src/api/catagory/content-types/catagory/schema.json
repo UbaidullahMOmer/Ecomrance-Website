@@ -26,6 +26,14 @@
       "relation": "oneToMany",
       "target": "api::product.product",
       "mappedBy": "catagory"
+    },
+    "img": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
     }
   }
 }

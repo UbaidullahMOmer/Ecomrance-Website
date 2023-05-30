@@ -1,5 +1,7 @@
 import React from 'react'
 import LatestProduct from './LatestProduct'
+import { Link } from 'react-router-dom'
+import Catagories from './Catagories/Catagories'
 // import Navbar from "./Navbar.js"
 // import Footer from './Footer.js'
 // import "./style.css"
@@ -29,10 +31,10 @@ function Home() {
                  <span className="">New Inspiration 2020</span>
                  <h1 className="">NEW COLLECTION!</h1>
                  <p>Trending from men's and women's  style collection</p>
-                 <a href="/" className="hero-btn">SHOP NOW</a>
+                 <Link to="/product" className="hero-btn">SHOP NOW</Link>
                </div>
                <div className="right">
-                   <img className="img1" src="./images/a.jpg" alt="dsfddf"/>
+                   <img className="img1" src="./images/hero-1.jpg" alt="Hero image"/>
                </div>
              </div>
            </li>
@@ -45,7 +47,7 @@ function Home() {
                  <a href="/" className="hero-btn">SHOP NOW</a>
                </div>
                <div className="right">
-                 <img className="img2" src="./images/b.png" alt="fgd"/>
+                 <img className="img2" style={{borderRadius: "100px"}} src="./images/b.png" alt="fgd"/>
                </div>
              </div>
            </li>
@@ -56,28 +58,8 @@ function Home() {
    </header>
 
    {/* <!-- Categories Section --> */}
-   <section className="section category">
-     <div className="cat-center">
-       <div className="cat">
-         <img src="./images/cat3.jpg" alt="sds" />
-         <div>
-           <p>WOMEN'S WEAR</p>
-         </div>
-       </div>
-       <div className="cat">
-         <img src="./images/cat2.jpg" alt="sdfsd" />
-         <div>
-           <p>ACCESSORIES</p>
-         </div>
-       </div>
-       <div className="cat">
-         <img src="./images/cat1.jpg" alt="Cat1 imga" />
-         <div>
-           <p>MEN'S WEAR</p>
-         </div>
-       </div>
-     </div>
-   </section>
+    
+    <Catagories/>
 
     <LatestProduct num = {8} />
 
@@ -240,7 +222,7 @@ function Home() {
  <span className="trend">Trend Design</span>
  <h1>New Collection 2021</h1>
  <p>New Arrival <span className="color">Sale 50% OFF</span> Limited Time Offer</p>
- <a href="/" className="btn btn-1">Discover Now</a>
+ <Link to="/product" className="btn btn-1">Discover Now</Link>
 </div>
 <div className="right">
  <img src="./images/banner.png" alt=""/>
@@ -334,7 +316,7 @@ function Home() {
    </section>
 
    {/* <!-- Contact --> */}
-   <section className="section contact">
+   <section className="section contact" id='contact'>
      <div className="row">
        <div className="col">
          <h2>EXCELLENT SUPPORT</h2>

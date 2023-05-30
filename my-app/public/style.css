@@ -229,8 +229,9 @@ Hero Area
   position: absolute;
   top: 0%;
   left: 25rem;
-  opacity: 0;
-  transition: all 1000ms ease-in-out;
+  top: 25rem;
+  /* opacity: 0; */
+  /* transition: all 1000ms ease-in-out; */
 }
 
 .hero .left h1 {
@@ -262,26 +263,26 @@ Hero Area
 .hero .right img {
   position: absolute;
   width: 55rem;
-  opacity: 0;
-  transition: all 1000ms ease-in-out;
+  /* opacity: 0; */
+  /* transition: all 1000ms ease-in-out; */
 }
 
-.center .right img.img1 {
+/* .center .right img.img1 {
   width: 85%;
   right: -25%;
   bottom: -50%;
-}
+} */
 
-.center .right img.img2 {
+/* .center .right img.img2 {
   width: 90%;
   right: -40%;
   bottom: -40%;
-}
+} */
 
-.glide__slide--active .center .right img {
+/* .glide__slide--active .center .right img {
   bottom: -3%;
   opacity: 1;
-}
+} */
 
 .glide__slide--active .left {
   opacity: 1;
