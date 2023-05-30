@@ -1,16 +1,9 @@
-
-
-function () {
-  return (
-    <div>Catagory</div>
-  )
-}
-
-
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import LatestProduct from "./LatestProduct";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import LatestProduct from "../LatestProduct";
 function Catagory() {
+  const [rid, setRid] = useState();
+  const location = useLocation();
   const navigate = useNavigate();
   const [pData, setPData] = useState([]);
   const getMovieList = async () => {
@@ -29,13 +22,14 @@ function Catagory() {
   };
   useEffect(() => {
     getMovieList();
+    setRid(location?.state?.id);
   }, []);
 
   function handleClick(pid) {
     navigate("/ProductDetail", { state: { id: pid } });
   
   }
-  
+  console.log(rid)
   return (
     <>
       <section className="section all-products" id="products">
@@ -56,6 +50,7 @@ function Catagory() {
         </div>
         <div className="product-center container">
           {pData.map((data) => {
+            if(data.attributes.catagory.data.attributes.title === rid){
             return (
               
                 <div key={data?.id} className="product-item">
@@ -95,6 +90,7 @@ function Catagory() {
                   </ul>
                 </div>
                   );
+                }
           })}
         </div>
       </section>
