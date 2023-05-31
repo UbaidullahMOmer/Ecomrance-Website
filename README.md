@@ -48,8 +48,8 @@ A: Yes, both the React.js frontend and the Strapi backend are highly customizabl
 ## Q: How do I deploy the Ecomrance website?
 A: The deployment process may vary depending on your hosting provider and preferences. You can build the React.js frontend and deploy it to a static hosting service, such as Netlify or Vercel. For the Strapi backend, you can deploy it to a platform that supports Node.js applications, such as Heroku or AWS.
 
-## Contact
-If you have any questions or need further assistance, please don't hesitate to contact us:
+# Contact
+##If you have any questions or need further assistance, please don't hesitate to contact us:
 
 ### - Email: [ubaidullahu449@gmail.com.com]
 ### - Website: [https://ubaidullah1.netlify.app/]
