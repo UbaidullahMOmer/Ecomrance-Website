@@ -1,7 +1,7 @@
 # Ecomrance Website
 This is the README file for the Ecomrance website, which is built using React.js and Strapi. The website consists of two main folders: my-app and ecomrance.
 
-### Table of Contents
+## Table of Contents
 - Folder Structure
 - React.js
 - Strapi
@@ -9,20 +9,20 @@ This is the README file for the Ecomrance website, which is built using React.js
 - FAQs
 - Contact
 
-### Folder Structure
+## Folder Structure
 The Ecomrance website is organized into two folders:
 
-- My-app: This folder contains the React.js code for the frontend of the website. It includes all the necessary files, components, and assets required to build the user interface.
+### - My-app: This folder contains the React.js code for the frontend of the website. It includes all the necessary files, components, and assets required to build the user interface.
 
-- Ecomrance: This folder contains the Strapi project, which serves as the backend for the website. It includes the configuration files, database models, and API endpoints required to handle the website's data and business logic.
+### - Ecomrance: This folder contains the Strapi project, which serves as the backend for the website. It includes the configuration files, database models, and API endpoints required to handle the website's data and business logic.
 
-### React.js
+## React.js
 The React.js framework is used to build the frontend of the Ecomrance website. It provides a component-based architecture and a virtual DOM, enabling the creation of interactive and dynamic user interfaces. The my-app folder contains all the React.js code, including the entry point (index.js), the root component (App.js), and additional components, stylesheets, and assets.
 
-### Strapi
+## Strapi
 Strapi is an open-source headless CMS (Content Management System) that is used as the backend for the Ecomrance website. It provides an admin panel for managing content, as well as a flexible API for accessing and manipulating the data. The ecomrance folder contains the Strapi project, including the configuration files (config), the data models (api), and the server setup.
 
-### Getting Started
+## Getting Started
 To run the Ecomrance website locally, follow these steps:
 
 Clone the repository to your local machine.
