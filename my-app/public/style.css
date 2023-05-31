@@ -324,7 +324,7 @@ Hero Media Query
 
   .hero,
   .hero .glide__slides {
-    margin: 0;
+    margin: 0; 
     padding: 0 3rem;
   }
 
