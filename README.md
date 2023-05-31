@@ -39,9 +39,9 @@ Run npm install to install the required dependencies.
 Once the installation is complete, run npm run develop to start the Strapi development server.
 Open your browser and access the Strapi admin panel at http://localhost:1337/admin.
 Follow the on-screen instructions to set up the initial admin account and configure your content types.
-Note: Please refer to the respective documentation for React.js and Strapi for more detailed instructions on development, deployment, and customization.
+#Note: Please refer to the respective documentation for React.js and Strapi for more detailed instructions on development, deployment, and customization.
 
-### FAQs
+## FAQs
 ### Q: Can I customize the Ecomrance website?
 A: Yes, both the React.js frontend and the Strapi backend are highly customizable. You can modify the code, add new features, or customize the design to fit your specific requirements.
 
