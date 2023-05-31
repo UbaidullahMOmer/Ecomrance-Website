@@ -31,7 +31,7 @@ function Catagories() {
     <section className="section category">
       <div className="cat-center">
         {pData.map((data) => {
-          if(data.id <4)
+          if(data.attributes.show)
           return (
             <div className="cat" key={data.id}>
               <img

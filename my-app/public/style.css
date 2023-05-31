@@ -351,7 +351,7 @@ Hero Media Query
   display: flex;
   align-items: center;
   justify-content: center;
-  max-width: 114rem;
+  max-width: 100%;
   margin: auto;
   padding: 0 3rem;
 }

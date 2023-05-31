@@ -37,6 +37,9 @@
         "audios",
         "files"
       ]
+    },
+    "show": {
+      "type": "boolean"
     }
   }
 }
