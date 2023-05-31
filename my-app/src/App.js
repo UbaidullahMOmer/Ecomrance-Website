@@ -10,6 +10,7 @@ import ProductDetail from "./Component/ProductDetail";
 import React, { useEffect, useState } from "react";
 import Aboutus from "./Component/About/Aboutus";
 import Catagory from "./Component/Catagories/Catagory";
+import Checkout from "./Component/Checkout/Checkout";
 function App() {
   // const [pData, setPData] = useState([]);
   // const getMovieList  = async () => {
@@ -74,10 +75,10 @@ function App() {
       <Route path="/ProductDetail" Component={ProductDetail} />
       <Route path="/About" Component={Aboutus} />
       <Route path="/Catagory" Component={Catagory} />
+      <Route path="/Checkout" Component={Checkout} />
     </Routes> 
       <Footer/>
       </BrowserRouter>
-      
     </>
   );
 }

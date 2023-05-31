@@ -131,7 +131,7 @@ function Cart() {
   </tbody>
 </table>
 
-          <Link to="/" className="checkout btn">
+          <Link to="/Checkout" className="checkout btn">
             Proceed To Checkout
           </Link>
         </div>

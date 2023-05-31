@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation  } from "react-router-dom";
 import LatestProduct from "./LatestProduct";
 
 function ProductDetail() {
@@ -52,7 +52,9 @@ function ProductDetail() {
       localStorage.setItem("product", JSON.stringify(newData));
     }
   }
+  // function Buynow(){
 
+  // }
   return (
     <>
       <section className="section product-detail">
@@ -76,6 +78,9 @@ function ProductDetail() {
                       <button type="button" onClick={() => Addcart(p?.id)} className="addCart">
                         Add To Cart
                       </button>
+                      <Link to="/Checkout" type="button"  className="addCart">
+                        Buy Now
+                      </Link>
                     </form>
                     <h3>Product Detail</h3>
                     <p>{p?.attributes?.pdetail}</p>

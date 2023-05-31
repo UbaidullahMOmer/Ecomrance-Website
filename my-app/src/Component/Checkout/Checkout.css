@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+*{
+  font-family: 'Poppins', sans-serif;
+  margin:0; padding:0;
+  box-sizing: border-box;
+  outline: none; border:none;
+  text-transform: capitalize;
+  transition: all .2s linear;
+}
+
+.container_checkout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:25px;
+  /* min-height: 100vh; */
+  /* background: linear-gradient(90deg, #2ecc71 60%, #27ae60 40.1%); */
+}
+
+.container_checkout header{
+  padding:20px;
+  width:700px;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+}
+
+.container_checkout header .row{
+  display: flex;
+  flex-wrap: wrap;
+  gap:15px;
+}
+
+.container_checkout header .row .colen{
+  flex:1 1 250px;
+}
+
+.container_checkout header .row .colen .title{
+  font-size: 20px;
+  color:#333;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.container_checkout header .row .colen .inputBox{
+  margin:15px 0;
+}
+
+.container_checkout header .row .colen .inputBox .spane{
+  margin-bottom: 10px;
+  display: block;
+}
+
+.container_checkout header .row .colen .inputBox input{
+  width: 100%;
+  border:1px solid #ccc;
+  padding:10px 15px;
+  font-size: 15px;
+  text-transform: none;
+}
+
+.container_checkout header .row .colen .inputBox input:focus{
+  border:1px solid #000;
+}
+
+.container_checkout header .row .colen .flex{
+  display: flex;
+  gap:15px;
+}
+
+.container_checkout header .row .colen .flex .inputBox{
+  margin-top: 5px;
+}
+
+.container_checkout header .row .colen .inputBox img{
+  height: 34px;
+  margin-top: 5px;
+  filter: drop-shadow(0 0 1px #000);
+}
+
+.container_checkout header .submit-btn{
+  width: 100%;
+  padding:12px;
+  font-size: 17px;
+  background: #27ae60;
+  color:#fff;
+  margin-top: 5px;
+  cursor: pointer;
+}
+
+.container_checkout header .submit-btn:hover{
+  background: #2ecc71;
+}
