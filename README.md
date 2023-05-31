@@ -45,13 +45,13 @@ Follow the on-screen instructions to set up the initial admin account and config
 ### Q: Can I customize the Ecomrance website?
 A: Yes, both the React.js frontend and the Strapi backend are highly customizable. You can modify the code, add new features, or customize the design to fit your specific requirements.
 
-### Q: How do I deploy the Ecomrance website?
+## Q: How do I deploy the Ecomrance website?
 A: The deployment process may vary depending on your hosting provider and preferences. You can build the React.js frontend and deploy it to a static hosting service, such as Netlify or Vercel. For the Strapi backend, you can deploy it to a platform that supports Node.js applications, such as Heroku or AWS.
 
-### Contact
+## Contact
 If you have any questions or need further assistance, please don't hesitate to contact us:
 
-- Email: [ubaidullahu449@gmail.com.com]
-- Website: [https://ubaidullah1.netlify.app/]
-- Phone: [03022699763]
-- Thank you for using the Ecomrance website!
+###- Email: [ubaidullahu449@gmail.com.com]
+###- Website: [https://ubaidullah1.netlify.app/]
+###- Phone: [03022699763]
+###- Thank you for using the Ecomrance website!
