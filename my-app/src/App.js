@@ -12,8 +12,8 @@ import Aboutus from "./Component/About/Aboutus";
 import Catagory from "./Component/Catagories/Catagory";
 import Checkout from "./Component/Checkout/Checkout";
 import {Provider} from "react-redux"
-import store from "./Store/store";
-function App() {
+import store from "./store/store";
+function App() { 
   // const [pData, setPData] = useState([]);
   // const getMovieList  = async () => {
 
@@ -51,7 +51,7 @@ function App() {
     localStorage.setItem("cartItemCount", cartItemCount.toString());
   }, []);
   return (
-    <> 
+    <>  
     <Provider store={store}>
 
    

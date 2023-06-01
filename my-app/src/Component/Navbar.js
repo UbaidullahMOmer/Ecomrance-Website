@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import { useSelector } from "react-redux";
 function Navbar(props) {
-
+  const item = useSelector((state)=> state.cart)
   return (
     <>
       <div className="top-nav">
@@ -68,7 +69,7 @@ function Navbar(props) {
             </div>
             <Link to="/cart" className="icon">
               <i className="bx bx-cart"></i>
-              <span className="d-flex">{props.num}</span>
+              <span className="d-flex">{item.length}</span>
             </Link>
           </div>
 

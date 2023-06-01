@@ -1315,6 +1315,13 @@ th:last-child {
   margin-right: 2rem;
   border-radius: 0.5rem;
 }
+.product-detail .form .addCart .more{
+  background: var(--green);
+  padding: 0.8rem 2rem;
+  color: #fff;
+  margin-right: 2rem;
+  border-radius: 0.5rem;
+}
 .product-detail .buynow { 
   background: var(--green);
   padding: 0.8rem 2rem;

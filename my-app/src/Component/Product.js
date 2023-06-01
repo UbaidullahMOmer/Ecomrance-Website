@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {add} from '../store/cartSlice';
 import LatestProduct from "./LatestProduct";
+import { useDispatch } from "react-redux";
 function Product() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [pData, setPData] = useState([]);
   const getMovieList = async () => {
@@ -26,7 +29,10 @@ function Product() {
     navigate("/ProductDetail", { state: { id: pid } });
   
   }
-  
+  function Addcart(data){
+     dispatch(add(data));
+  }
+
   return (
     <>
       <section className="section all-products" id="products">
@@ -71,14 +77,17 @@ function Product() {
                     <botton onClick={() => handleClick(data?.id)}>
                       {data?.attributes?.name}
                     </botton>
+                    <button  
+                    style={{  background: "var(--green)",  padding: "0.8rem 2rem",  color: "#fff",  marginRight: "2rem",  borderRadius: "0.5rem"}} type="button" 
+                    onClick={() => Addcart(data)} 
+                    className="addCart more">
+                        Add To Cart
+                      </button>
                     <h4>${data?.attributes?.price}</h4>
                   </div>
                   <ul className="icons">
                     <li>
                       <i className="bx bx-heart"></i>
-                    </li>
-                    <li>
-                      <i className="bx bx-search"></i>
                     </li>
                     <li>
                       <i className="bx bx-cart"></i>
