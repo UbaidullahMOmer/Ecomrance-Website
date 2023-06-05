@@ -33,7 +33,7 @@ function Product() {
      dispatch(add(data));
   }
 
-  return (
+  return ( 
     <>
       <section className="section all-products" id="products">
         <div className="top container">
