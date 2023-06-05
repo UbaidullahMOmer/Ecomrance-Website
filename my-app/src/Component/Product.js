@@ -3,7 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import {add} from '../store/cartSlice';
 import LatestProduct from "./LatestProduct";
 import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 function Product() {
+  const item = useSelector((state)=> state.cart)
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [pData, setPData] = useState([]);
@@ -27,9 +29,14 @@ function Product() {
     navigate("/ProductDetail", { state: { id: pid } });
   
   }
-  function Addcart(data){
-     dispatch(add(data));
+
+  function Addcart(data) {
+    const itemExists = item.some((oldData) => oldData.id === data.id);
+    if (!itemExists) {
+      dispatch(add(data));
+    }
   }
+  
 
   return ( 
     <>
@@ -75,13 +82,14 @@ function Product() {
                     <botton onClick={() => handleClick(data?.id)}>
                       {data?.attributes?.name}
                     </botton>
+                    <h4>${data?.attributes?.price}</h4>
+                    <br></br>
                     <button  
                     style={{  background: "var(--green)",  padding: "0.8rem 2rem",  color: "#fff",  marginRight: "2rem",  borderRadius: "0.5rem"}} type="button" 
                     onClick={() => Addcart(data)} 
                     className="addCart more">
                         Add To Cart
                       </button>
-                    <h4>${data?.attributes?.price}</h4>
                   </div>
                   <ul className="icons">
                     <li>
