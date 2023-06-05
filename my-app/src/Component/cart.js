@@ -7,16 +7,10 @@ import {remove} from '../store/cartSlice';
 function Cart() {
   const dispatch = useDispatch();
   const item = useSelector((state)=> state.cart)
-  const [prodata, setProdata] = useState([]);
-  // const [subtotal, setSubtotal] = useState(50);
-  const tax = 50;
-  // const [total, setTotal] = useState(0);
+  const [qty, setQty] = useState()
 
-
-  function cqnt(event, index) {
-    const updatedProdata = [...prodata];
-    updatedProdata[index].product_qty = event.target.value;
-    setProdata(updatedProdata);
+  function cqnt(event) {
+    setQty(event.target.value)
   }
 
   function deleteItem(data) {
@@ -46,34 +40,25 @@ function Cart() {
                     </div>
                   </div>
                 </td> 
-                <td>
+
                 <td>
                   <input
                     type="number"
-                    value="3"
+                    value={qty}
                     onChange={(e) => cqnt(e, index)}
                     min="1"
                   />
                 </td>
-                </td>
-                <td>
+
                 <td>${data.attributes.price}</td>
-                </td>
+
               </tr>
             ))}
           </tbody>
         </table>
         <div className="total-price">
         <table>
-  <tbody>
-    <tr>
-      <td>Subtotal</td>
-      <td>$20</td>
-    </tr>
-    <tr>
-      <td>Tax</td>
-      <td>${tax}</td>
-    </tr>
+  <tbody> 
     <tr>
       <td>Total</td>
       <td>$30</td>
