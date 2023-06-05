@@ -15,8 +15,6 @@ function Product() {
       const responseJson = await response.json();
       const data = responseJson;
       setPData(data.data);
-      // console.log(data.data)
-      // setNid(pData.data.id)
     } catch (err) {
       console.error(err);
     }
