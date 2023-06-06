@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation  } from "react-router-dom";
 import LatestProduct from "./LatestProduct";
-
+import { useDispatch, useSelector } from "react-redux";
+import {add} from '../Store/CartSlice';
 function ProductDetail() {
+  const item = useSelector((state)=> state.cart)
+  const dispatch = useDispatch();
   const [rid, setRid] = useState();
   const location = useLocation();
-  const [pData, setPData] = useState([]);
+  const [pData, setPData] = useState([]); 
   const [prodata, setProdata] = useState({
     id: "",
     qnt: "",
@@ -32,29 +35,15 @@ function ProductDetail() {
     setProdata((prodata) => ({ ...prodata, [event.target.name]: event.target.value }));
   }
 
-  function Addcart(id) {
-    const existingData = localStorage.getItem("product");
-    let newData = [];
-
-    if (existingData) {
-      newData = JSON.parse(existingData);
+ 
+  function Addcart(data) {
+    const itemExists = item.some((oldData) => oldData.id === data.id);
+    if (!itemExists) {
+      dispatch(add(data));
     }
-
-    // Check if the product is already in the cart
-    const isProductInCart = newData.some((item) => item.product_id === id);
-    if (!isProductInCart) {
-      const newProduct = {
-        product_id: id,
-        product_qty: prodata.qnt,
-      };
-
-      newData.push(newProduct);
-      localStorage.setItem("product", JSON.stringify(newData));
-    }
+    console.log(data)
   }
-  // function Buynow(){
-
-  // }
+  
   return (
     <>
       <section className="section product-detail">
@@ -75,7 +64,7 @@ function ProductDetail() {
                     <form className="form">
                       <label htmlFor="">Total Quantity {p?.attributes?.quantity}</label> 
                       <input  type="number" name="qnt" value={prodata.qnt} onChange={(e) => onChangevalue(e)} placeholder="0" />
-                      <button type="button" onClick={() => Addcart(p?.id)} className="addCart">
+                      <button type="button" onClick={() => Addcart(p)}  className="addCart">
                         Add To Cart
                       </button>
                       <Link to="/Checkout" type="button"  className="addCart">

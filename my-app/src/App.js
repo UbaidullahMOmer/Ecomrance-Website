@@ -1,8 +1,8 @@
 import Home from "./Component/Home"
 import {BrowserRouter,Routes,Route} from "react-router-dom"
-import Navbar from "./Component/Navbar";
+import Navbar from "./Component/Navbar/Navbar";
 import Footer from "./Component/Footer";
-import Login from "./Component/Login";
+import Login from "./Component/Login"; 
 import Signup from "./Component/Signup";
 import cart from "./Component/Cart";
 import Product from "./Component/Product";
@@ -11,7 +11,9 @@ import React, { useEffect, useState } from "react";
 import Aboutus from "./Component/About/Aboutus";
 import Catagory from "./Component/Catagories/Catagory";
 import Checkout from "./Component/Checkout/Checkout";
-function App() {
+import {Provider} from "react-redux"
+import store from "./Store/Store";
+function App() { 
   // const [pData, setPData] = useState([]);
   // const getMovieList  = async () => {
 
@@ -49,7 +51,10 @@ function App() {
     localStorage.setItem("cartItemCount", cartItemCount.toString());
   }, []);
   return (
-    <> 
+    <>  
+    <Provider store={store}>
+
+   
                  {/* {pData.map((data) =>{
                  return(
                     <card >
@@ -79,6 +84,7 @@ function App() {
     </Routes> 
       <Footer/>
       </BrowserRouter>
+      </Provider>
     </>
   );
 }

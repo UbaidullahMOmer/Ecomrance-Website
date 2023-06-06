@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import {add} from '../Store/CartSlice';
 import LatestProduct from "./LatestProduct";
+import { useDispatch, useSelector } from "react-redux";
 function Product() {
+  const item = useSelector((state)=> state.cart)
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [pData, setPData] = useState([]);
   const getMovieList = async () => {
@@ -12,8 +16,6 @@ function Product() {
       const responseJson = await response.json();
       const data = responseJson;
       setPData(data.data);
-      // console.log(data.data)
-      // setNid(pData.data.id)
     } catch (err) {
       console.error(err);
     }
@@ -26,8 +28,16 @@ function Product() {
     navigate("/ProductDetail", { state: { id: pid } });
   
   }
+
+  function Addcart(data) {
+    const itemExists = item.some((oldData) => oldData.id === data.id);
+    if (!itemExists) {
+      dispatch(add(data));
+    }
+  }
   
-  return (
+
+  return ( 
     <>
       <section className="section all-products" id="products">
         <div className="top container">
@@ -46,11 +56,15 @@ function Product() {
           </form>
         </div>
         <div className="product-center container">
-          {pData.map((data) => {
+        {pData
+              .sort((a, b) => {
+                // console.log(a)
+                return b?.id - a?.id;
+            }).map((data) => {
             return (
               
-                <div key={data?.id} className="product-item">
-                  <div className="overlay">
+                <div key={data?.id}  className="product-item">
+                  <div className="overlay" onClick={() => handleClick(data?.id)}>
                     <Link to="/ProductDetail" className="product-thumb">
                       <img
                         src={
@@ -68,20 +82,24 @@ function Product() {
                     <span>
                       {data?.attributes?.subcata?.data?.attributes?.title}
                     </span>
-                    <botton onClick={() => handleClick(data?.id)}>
+                    <botton >
                       {data?.attributes?.name}
                     </botton>
                     <h4>${data?.attributes?.price}</h4>
+                    <br></br>
+                    <button  
+                    style={{  background: "var(--green)",  padding: "0.8rem 2rem",  color: "#fff",  marginRight: "2rem",  borderRadius: "0.5rem"}} type="button" 
+                    onClick={() => Addcart(data)} 
+                    className="addCart more">
+                        Add To Cart
+                      </button>
                   </div>
                   <ul className="icons">
                     <li>
                       <i className="bx bx-heart"></i>
                     </li>
-                    <li>
-                      <i className="bx bx-search"></i>
-                    </li>
-                    <li>
-                      <i className="bx bx-cart"></i>
+                    <li onClick={() => Addcart(data)}>
+                      <a  ><i className="bx bx-cart"></i></a>
                     </li>
                   </ul>
                 </div>

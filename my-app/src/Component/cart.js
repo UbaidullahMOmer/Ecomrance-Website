@@ -1,81 +1,29 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { Link } from "react-router-dom";
 import LatestProduct from "./LatestProduct";
+import { useSelector, useDispatch } from "react-redux";
+import { remove } from "../Store/CartSlice";
 
-function Cart() {
-  const [pData, setPData] = useState([]);
-  const sprodata = localStorage.getItem("product");
-  const dat = JSON.parse(sprodata);
-  const [data, setData] = useState(dat);
-  const [prodata, setProdata] = useState([]);
-  const [subtotal, setSubtotal] = useState(0);
-  const tax = 50;
-  const [total, setTotal] = useState(0);
+function Cart() {   
   
-  const getMovieList = async () => {
-    const url = "http://localhost:1337/api/products?populate=*"; 
-    try {
-      const response = await fetch(url);
-      const responseJson = await response.json();
-      const data = responseJson.data;
-      setPData(data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  const dispatch = useDispatch();
+  const item = useSelector((state) => state.cart);
+  const [qty, setQty] = useState({});
 
-  useEffect(() => {
-    getMovieList();
-  }, []);
-
-  useEffect(() => {
-    if (data && pData.length > 0) {
-      const updatedProdata = data.map((item) => {
-        const product = pData.find((p) => p.id === item.product_id);
-        return {
-          ...item,
-          prodata: {
-            category: product.attributes.catagory?.data?.attributes?.title,
-            price: product.attributes.price,
-            name: product.attributes.name,
-            img: "http://localhost:1337" + product.attributes.image?.data?.attributes?.url
-          }
-        };
-      });
-      setProdata(updatedProdata);
-    }
-  }, [data, pData]);
-
-  function cqnt(event, index) {
-    const updatedProdata = [...prodata];
-    updatedProdata[index].product_qty = event.target.value;
-    setProdata(updatedProdata);
+  function cqnt(event, itemId) {
+    setQty((prevQty) => ({ ...prevQty, [itemId]: event.target.value }));
   }
 
-  function deleteItem(index) {
-    const updatedProdata = [...prodata];
-    const deletedItem = updatedProdata.splice(index, 1)[0];
-    setProdata(updatedProdata);
-    
-    // Remove item from localStorage
-    const localStorageData = JSON.parse(localStorage.getItem("product"));
-    const updatedLocalStorageData = localStorageData.filter(
-      (item) => item.product_id !== deletedItem.product_id
-    );
-    localStorage.setItem("product", JSON.stringify(updatedLocalStorageData));
+  const totalPrice = item.reduce((total, data) => {
+    const itemQty = qty[data?.id] ? parseInt(qty[data?.id]) : 1;
+    const subtotal = itemQty * data?.attributes?.price;
+    return total + subtotal;
+  }, 1);
+
+  function deleteItem(itemId) {
+    dispatch(remove(itemId));
   }
-  useEffect(() => {
-    if (prodata.length > 0) {
-      const sub = prodata.reduce((acc, item) => {
-        return acc + item.prodata.price * item.product_qty;
-      }, 0);
-      setSubtotal(sub);
-  
-      const t = sub + tax;
-      setTotal(t);
-    }
-  }, [prodata]);
-  
+console.log(item)
   return (
     <>
       <div className="container cart">
@@ -88,48 +36,50 @@ function Cart() {
             </tr>
           </thead>
           <tbody>
-            {prodata.map((item, index) => (
-              <tr key={index}>
+            {item.map((data) => (
+              <tr key={data?.id}>
                 <td>
                   <div className="cart-info">
-                    <img src={item.prodata.img} alt="" />
+                    <img 
+                      src={
+                        "http://localhost:1337" +
+                        data?.attributes?.image?.data?.attributes?.url
+                      }
+                      alt="img"
+                    />
                     <div>
-                      <p>{item.prodata.name}</p>
-                      <span>Price: ${item.prodata.price}</span> <br />
-                      <Link to="#" onClick={() => deleteItem(index)}>remove</Link>
+                      <p>{data?.attributes?.name}</p>
+                      <span>Price: ${data?.attributes?.price}</span> <br />
+                      <Link to="#" onClick={() => deleteItem(data?.id)}>
+                        remove
+                      </Link>
                     </div>
                   </div>
                 </td>
+
                 <td>
                   <input
                     type="number"
-                    value={item.product_qty}
-                    onChange={(e) => cqnt(e, index)}
+                    value={qty[data?.id] || "1"}
+                    onChange={(e) => cqnt(e, data?.id)}
                     min="1"
                   />
                 </td>
-                <td>${item.prodata.price * item.product_qty}</td>
+
+                <td>${data?.attributes?.price * (qty[data?.id] || 1)}</td>
               </tr>
             ))}
           </tbody>
         </table>
         <div className="total-price">
-        <table>
-  <tbody>
-    <tr>
-      <td>Subtotal</td>
-      <td>${subtotal}</td>
-    </tr>
-    <tr>
-      <td>Tax</td>
-      <td>${tax}</td>
-    </tr>
-    <tr>
-      <td>Total</td>
-      <td>${total}</td>
-    </tr>
-  </tbody>
-</table>
+          <table>
+            <tbody>
+              <tr>
+                <td>Total</td>
+                <td>${totalPrice}</td>
+              </tr>
+            </tbody>
+          </table>
 
           <Link to="/Checkout" className="checkout btn">
             Proceed To Checkout

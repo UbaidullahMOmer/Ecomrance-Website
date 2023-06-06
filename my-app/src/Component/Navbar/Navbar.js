@@ -1,6 +1,40 @@
 import { Link } from "react-router-dom";
-import React from "react";
+import { useSelector } from "react-redux";
+import "./Navbar.css";
+import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 function Navbar(props) {
+  const navigate = useNavigate();
+  const [pData, setPData] = useState([]);
+
+  const getMovieList = async () => {
+    const url = "http://localhost:1337/api/catagories?populate=*";
+
+    try {
+      const response = await fetch(url);
+      const responseJson = await response.json();
+      const data = responseJson;
+      setPData(data.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    getMovieList();
+  }, []);
+
+  function handleClick(cata) {
+    navigate("/catagory", { state: { id: cata } });
+    console.log(cata);
+  }
+
+  const item = useSelector((state) => state.cart);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <>
@@ -32,10 +66,26 @@ function Navbar(props) {
                 Home
               </Link>
             </li>
-            <li className="nav-item">
-              <Link to="/Product" className="nav-link">
-                Shop
-              </Link>
+            <li
+              className="dropdown"
+              onMouseEnter={toggleDropdown}
+              onMouseLeave={toggleDropdown}
+            >
+              <li className="shop">
+                <Link to="/product" className="nav-link">
+                  Shop
+                </Link>
+              </li>
+              {isDropdownOpen && (
+                
+                <div className="dropdown-content">
+                  {pData.map((data)=>(
+                    <button key={data.id} onClick={() => handleClick(data.attributes.title)}>
+                    {data.attributes.title}
+                  </button>
+                  ))}
+                </div>
+              )}
             </li>
             <li className="nav-item">
               <Link to="#terms" className="nav-link">
@@ -52,7 +102,6 @@ function Navbar(props) {
                 Contact
               </Link>
             </li>
-
           </ul>
 
           <div className="icons d-flex">
@@ -68,7 +117,7 @@ function Navbar(props) {
             </div>
             <Link to="/cart" className="icon">
               <i className="bx bx-cart"></i>
-              <span className="d-flex">{props.num}</span>
+              <span className="d-flex">{item.length}</span>
             </Link>
           </div>
 

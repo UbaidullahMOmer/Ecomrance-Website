@@ -324,7 +324,7 @@ Hero Media Query
 
   .hero,
   .hero .glide__slides {
-    margin: 0;
+    margin: 0; 
     padding: 0 3rem;
   }
 
@@ -1182,7 +1182,6 @@ td a {
 
 td img {
   width: 8rem;
-  height: 8rem;
   margin-right: 1rem;
 }
 
@@ -1309,6 +1308,13 @@ th:last-child {
   margin-right: 2rem;
 }
 .product-detail .form .addCart {
+  background: var(--green);
+  padding: 0.8rem 2rem;
+  color: #fff;
+  margin-right: 2rem;
+  border-radius: 0.5rem;
+}
+.product-detail .form .addCart .more{
   background: var(--green);
   padding: 0.8rem 2rem;
   color: #fff;
