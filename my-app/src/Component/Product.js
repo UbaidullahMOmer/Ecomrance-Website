@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import {add} from '../store/cartSlice';
 import LatestProduct from "./LatestProduct";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 function Product() {
   const item = useSelector((state)=> state.cart)
   const dispatch = useDispatch();

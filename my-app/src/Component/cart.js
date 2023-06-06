@@ -14,15 +14,15 @@ function Cart() {
   }
 
   const totalPrice = item.reduce((total, data) => {
-    const itemQty = qty[data.id] ? parseInt(qty[data.id]) : 0;
-    const subtotal = itemQty * data.attributes.price;
+    const itemQty = qty[data?.id] ? parseInt(qty[data?.id]) : 0;
+    const subtotal = itemQty * data?.attributes?.price;
     return total + subtotal;
   }, 0);
 
   function deleteItem(itemId) {
     dispatch(remove(itemId));
   }
-
+console.log(item)
   return (
     <>
       <div className="container cart">
@@ -36,10 +36,10 @@ function Cart() {
           </thead>
           <tbody>
             {item.map((data) => (
-              <tr key={data.id}>
+              <tr key={data?.id}>
                 <td>
                   <div className="cart-info">
-                    <img
+                    <img 
                       src={
                         "http://localhost:1337" +
                         data?.attributes?.image?.data?.attributes?.url
@@ -47,9 +47,9 @@ function Cart() {
                       alt="img"
                     />
                     <div>
-                      <p>{data.attributes.name}</p>
+                      <p>{data?.attributes?.name}</p>
                       <span>Price: $20</span> <br />
-                      <Link to="#" onClick={() => deleteItem(data.id)}>
+                      <Link to="#" onClick={() => deleteItem(data?.id)}>
                         remove
                       </Link>
                     </div>
@@ -59,13 +59,13 @@ function Cart() {
                 <td>
                   <input
                     type="number"
-                    value={qty[data.id] || "0"}
-                    onChange={(e) => cqnt(e, data.id)}
+                    value={qty[data?.id] || "0"}
+                    onChange={(e) => cqnt(e, data?.id)}
                     min="1"
                   />
                 </td>
 
-                <td>${data.attributes.price * (qty[data.id] || 0)}</td>
+                <td>${data?.attributes?.price * (qty[data?.id] || 0)}</td>
               </tr>
             ))}
           </tbody>
