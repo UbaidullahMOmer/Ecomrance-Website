@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@auth0/auth0-react": "^2.1.0",
     "@reduxjs/toolkit": "^1.9.5",
     "cra-template": "1.2.0",
     "firebase": "^9.20.0",

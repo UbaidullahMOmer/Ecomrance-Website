@@ -3,10 +3,11 @@ import { useSelector } from "react-redux";
 import "./Navbar.css";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-function Navbar(props) {
+import { useAuth0 } from "@auth0/auth0-react";
+function Navbar() {
   const navigate = useNavigate();
   const [pData, setPData] = useState([]);
-
+  const { loginWithRedirect, isAuthenticated, logout } = useAuth0();
   const getMovieList = async () => {
     const url = "http://localhost:1337/api/catagories?populate=*";
 
@@ -77,12 +78,14 @@ function Navbar(props) {
                 </Link>
               </li>
               {isDropdownOpen && (
-                
                 <div className="dropdown-content">
-                  {pData.map((data)=>(
-                    <button key={data.id} onClick={() => handleClick(data.attributes.title)}>
-                    {data.attributes.title}
-                  </button>
+                  {pData.map((data) => (
+                    <button
+                      key={data.id}
+                      onClick={() => handleClick(data.attributes.title)}
+                    >
+                      {data.attributes.title}
+                    </button>
                   ))}
                 </div>
               )}
@@ -105,9 +108,28 @@ function Navbar(props) {
           </ul>
 
           <div className="icons d-flex">
-            <Link to="/login" className="icon">
+            {/* <Link to="/login" className="icon">
               <i className="bx bx-user"></i>
-            </Link>
+            </Link> */}
+             {isAuthenticated ? (
+            <div>
+              <button className="icon" onClick={() => loginWithRedirect()}>
+                Logout
+              </button>
+            </div>
+            ) : (
+            <div>
+              <button
+                className="icon"
+                onClick={() =>
+                  logout({ logoutParams: { returnTo: window.location.origin } })
+                }
+              >
+                Login
+              </button>
+            </div>
+            )
+            }
             <div className="icon">
               <i className="bx bx-search"></i>
             </div>
