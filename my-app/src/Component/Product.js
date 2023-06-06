@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {add} from '../store/cartSlice';
+import {add} from '../Store/CartSlice';
 import LatestProduct from "./LatestProduct";
 import { useDispatch, useSelector } from "react-redux";
 function Product() {
@@ -56,11 +56,15 @@ function Product() {
           </form>
         </div>
         <div className="product-center container">
-          {pData.map((data) => {
+        {pData
+              .sort((a, b) => {
+                // console.log(a)
+                return b?.id - a?.id;
+            }).map((data) => {
             return (
               
-                <div key={data?.id} className="product-item">
-                  <div className="overlay">
+                <div key={data?.id}  className="product-item">
+                  <div className="overlay" onClick={() => handleClick(data?.id)}>
                     <Link to="/ProductDetail" className="product-thumb">
                       <img
                         src={
@@ -78,7 +82,7 @@ function Product() {
                     <span>
                       {data?.attributes?.subcata?.data?.attributes?.title}
                     </span>
-                    <botton onClick={() => handleClick(data?.id)}>
+                    <botton >
                       {data?.attributes?.name}
                     </botton>
                     <h4>${data?.attributes?.price}</h4>
@@ -94,8 +98,8 @@ function Product() {
                     <li>
                       <i className="bx bx-heart"></i>
                     </li>
-                    <li>
-                      <a onClick={() => Addcart(data)} ><i className="bx bx-cart"></i></a>
+                    <li onClick={() => Addcart(data)}>
+                      <a  ><i className="bx bx-cart"></i></a>
                     </li>
                   </ul>
                 </div>

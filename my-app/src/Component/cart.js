@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import { Link } from "react-router-dom";
 import LatestProduct from "./LatestProduct";
 import { useSelector, useDispatch } from "react-redux";
-import { remove } from "../store/cartSlice";
+import { remove } from "../Store/CartSlice";
 
-function Cart() {
+function Cart() {   
+  
   const dispatch = useDispatch();
   const item = useSelector((state) => state.cart);
   const [qty, setQty] = useState({});
@@ -14,10 +15,10 @@ function Cart() {
   }
 
   const totalPrice = item.reduce((total, data) => {
-    const itemQty = qty[data?.id] ? parseInt(qty[data?.id]) : 0;
+    const itemQty = qty[data?.id] ? parseInt(qty[data?.id]) : 1;
     const subtotal = itemQty * data?.attributes?.price;
     return total + subtotal;
-  }, 0);
+  }, 1);
 
   function deleteItem(itemId) {
     dispatch(remove(itemId));
@@ -48,7 +49,7 @@ console.log(item)
                     />
                     <div>
                       <p>{data?.attributes?.name}</p>
-                      <span>Price: $20</span> <br />
+                      <span>Price: ${data?.attributes?.price}</span> <br />
                       <Link to="#" onClick={() => deleteItem(data?.id)}>
                         remove
                       </Link>
@@ -59,13 +60,13 @@ console.log(item)
                 <td>
                   <input
                     type="number"
-                    value={qty[data?.id] || "0"}
+                    value={qty[data?.id] || "1"}
                     onChange={(e) => cqnt(e, data?.id)}
                     min="1"
                   />
                 </td>
 
-                <td>${data?.attributes?.price * (qty[data?.id] || 0)}</td>
+                <td>${data?.attributes?.price * (qty[data?.id] || 1)}</td>
               </tr>
             ))}
           </tbody>
