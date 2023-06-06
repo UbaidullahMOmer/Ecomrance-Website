@@ -96,7 +96,7 @@ function Product() {
                       <i className="bx bx-heart"></i>
                     </li>
                     <li>
-                      <i className="bx bx-cart"></i>
+                      <a onClick={() => Addcart(data)} ><i className="bx bx-cart"></i></a>
                     </li>
                   </ul>
                 </div>
