@@ -112,19 +112,20 @@ function Navbar() {
               <i className="bx bx-user"></i>
             </Link> */}
              {isAuthenticated ? (
-            <div>
-              <button className="icon" onClick={() => loginWithRedirect()}>
-                Logout
-              </button>
-            </div>
+                          <div>
+                          <button
+                            className="icon"
+                            onClick={() =>
+                              logout({ logoutParams: { returnTo: window.location.origin } })
+                            }
+                          >
+                            logout
+                          </button>
+                        </div>
+
             ) : (
-            <div>
-              <button
-                className="icon"
-                onClick={() =>
-                  logout({ logoutParams: { returnTo: window.location.origin } })
-                }
-              >
+              <div>
+              <button className="icon" onClick={() => loginWithRedirect()}>
                 Login
               </button>
             </div>
