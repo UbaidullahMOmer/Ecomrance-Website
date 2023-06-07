@@ -30,7 +30,7 @@ function Catagories() {
   return (
     <section className="section category">
       <div className="cat-center">
-        {pData.map((data) => {
+        {pData?.map((data) => {
           if(data.attributes.show)
           return (
             <div className="cat" key={data.id}>

@@ -79,7 +79,7 @@ function Navbar(props) {
               {isDropdownOpen && (
                 
                 <div className="dropdown-content">
-                  {pData.map((data)=>(
+                  {pData?.map((data)=>(
                     <button key={data.id} onClick={() => handleClick(data.attributes.title)}>
                     {data.attributes.title}
                   </button>

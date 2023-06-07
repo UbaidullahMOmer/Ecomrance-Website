@@ -61,12 +61,11 @@ function Catagory() {
           </form>
         </div>
         <div className="product-center container">
-        {pData
-              .sort((a, b) => {
+        {pData?.sort((a, b) => {
                 // console.log(a)
                 return b?.id - a?.id;
             }).map((data) => {
-            if(data.attributes.catagory.data.attributes.title === rid){
+            if(data?.attributes?.catagory?.data?.attributes?.title === rid){
             return (
               
               <div key={data?.id}  className="product-item">
