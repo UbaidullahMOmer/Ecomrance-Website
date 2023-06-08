@@ -41,7 +41,7 @@ function Home() {
            <li className="glide__slide">
              <div className="center">
                <div className="left">
-                 <span>New Inspiration 2020</span>
+                 <span>New Inspiration 2023</span>
                  <h1>THE PERFECT MATCH!</h1>
                  <p>Trending from men's and women's  style collection</p>
                  <a href="/" className="hero-btn">SHOP NOW</a>

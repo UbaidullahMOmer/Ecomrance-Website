@@ -4,7 +4,7 @@ import Navbar from "./Component/Navbar/Navbar";
 import Footer from "./Component/Footer";
 import Login from "./Component/Login"; 
 import Signup from "./Component/Signup";
-import cart from "./Component/Cart";
+import Cart from "./Component/Cart";
 import Product from "./Component/Product";
 import ProductDetail from "./Component/ProductDetail";
 import React, { useEffect, useState } from "react";
@@ -75,12 +75,12 @@ function App() {
       <Route path="/" Component={Home} />
       <Route path="/Login" Component={Login} />
       <Route path="/Signup" Component={Signup} />
-      <Route path="/cart" Component={cart} />
+      <Route path="/cart" Component={Cart} />
       <Route path="/Product" Component={Product} />
       <Route path="/ProductDetail" Component={ProductDetail} />
       <Route path="/About" Component={Aboutus} />
       <Route path="/Catagory" Component={Catagory} />
-      <Route path="/Checkout" Component={Checkout} />
+      <Route path="/Checkout" Component={Checkout} /> 
     </Routes> 
       <Footer/>
       </BrowserRouter>
