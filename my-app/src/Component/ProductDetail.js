@@ -13,7 +13,7 @@ function ProductDetail() {
     id: "",
     qnt: "",
   });
-
+  const [totalqnty, setTotalqnty] = useState()
   const getMovieList = async () => {
     const url = "http://localhost:1337/api/products?populate=*";
     const response = await fetch(url);
@@ -31,12 +31,13 @@ function ProductDetail() {
     setRid(location?.state?.id);
   }, []);
 
-  function onChangevalue(event) {
+  function onChangevalue(event, tqnty) {
+    setTotalqnty(tqnty - event.target.value)
     setProdata((prodata) => ({ ...prodata, [event.target.name]: event.target.value }));
   }
 
  
-  function Addcart(data) {
+  function Addcart(data ) {
     const itemExists = item.some((oldData) => oldData.id === data.id);
     if (!itemExists) {
       dispatch(add(data));
@@ -62,8 +63,9 @@ function ProductDetail() {
                     <h1>{p?.attributes?.name}</h1>
                     <div className="price">${p?.attributes?.price}</div>
                     <form className="form">
-                      <label htmlFor="">Total Quantity {p?.attributes?.quantity}</label> 
-                      <input  type="number" name="qnt" value={prodata.qnt} onChange={(e) => onChangevalue(e)} placeholder="0" />
+                      
+                      <label htmlFor="">Avalabale Quantity {totalqnty}</label> 
+                      <input className="quntaty"  type="number" name="qnt" value={prodata.qnt} onChange={(e) => onChangevalue(e, p?.attributes.quantity)} placeholder="0" />
                       <button type="button" onClick={() => Addcart(p)}  className="addCart">
                         Add To Cart
                       </button>
