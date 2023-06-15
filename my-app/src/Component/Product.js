@@ -1,47 +1,65 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import {add} from '../Store/CartSlice';
+import { Link, json, useNavigate } from "react-router-dom";
+// import {add} from '../Store/CartSlice';
 import LatestProduct from "./LatestProduct";
-import { useDispatch, useSelector } from "react-redux";
+// import { useDispatch, useSelector } from "react-redux";
+import { useGetProductsQuery } from "../Store/apiSlice";
 function Product() {
-  const item = useSelector((state)=> state.cart)
-  const dispatch = useDispatch();
+  const {
+    data: products,
+    isLoading,
+    isSuccess,
+    isError,
+    error
+  } = useGetProductsQuery();
+  // const item = useSelector((state)=> state.cart)
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
   const [pData, setPData] = useState([]);
-  const getMovieList = async () => {
-    const url = "http://localhost:1337/api/products?populate=*";
+  // const getMovieList = async () => {
+  //   const url = "http://localhost:1337/api/products?populate=*";
 
-    const response = await fetch(url);
-    try {
-      const responseJson = await response.json();
-      const data = responseJson;
-      setPData(data.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-  useEffect(() => {
-    getMovieList();
-  }, []);
+  //   const response = await fetch(url);
+  //   try {
+  //     const responseJson = await response.json();
+  //     const data = responseJson;
+  //     setPData(data.data);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
+  // useEffect(() => {
+  //   getMovieList();
+  // }, []);
+  let content = JSON.stringify(products)
+  // if(isLoading){
+  //   content = <p>Loading...</p>
+  // }else if(isSuccess){
+  //   content = products.data
+  // }else if(isError){
+  //   content = <p>{error}</p>
+  // }
+  // console.log(products)
+  console.log(products)
+  // console.log(useGetProductsQuery)
 
-  function handleClick(pid) {
+  function handleClick(pid) { 
     navigate("/ProductDetail", { state: { id: pid } });
   
   }
 
-  function Addcart(data) {
-    const itemExists = item.some((oldData) => oldData.id === data.id);
-    if (!itemExists) {
-      dispatch(add(data));
-    }
-  }
+  // function Addcart(data) {
+  //   const itemExists = item.some((oldData) => oldData.id === data.id);
+  //   if (!itemExists) {
+  // dispatch(add(data));
+  //   }
+  // }
   
-
   return ( 
     <>
       <section className="section all-products" id="products">
         <div className="top container">
-          <h1>All Products</h1>
+          <h1>asdf</h1>
           <form>
             <select>
               <option value="1">Defualt Sorting</option>
@@ -56,9 +74,7 @@ function Product() {
           </form>
         </div>
         <div className="product-center container">
-        {pData
-              .sort((a, b) => {
-                // console.log(a)
+        {pData.sort((a, b) => {
                 return b?.id - a?.id;
             }).map((data) => {
             return (
@@ -89,7 +105,7 @@ function Product() {
                     <br></br>
                     <button  
                     style={{  background: "var(--green)",  padding: "0.8rem 2rem",  color: "#fff",  marginRight: "2rem",  borderRadius: "0.5rem"}} type="button" 
-                    onClick={() => Addcart(data)} 
+                    // onClick={() => Addcart(data)} 
                     className="addCart more">
                         Add To Cart
                       </button>
@@ -98,7 +114,9 @@ function Product() {
                     <li>
                       <i className="bx bx-heart"></i>
                     </li>
-                    <li onClick={() => Addcart(data)}>
+                    <li 
+                    // onClick={() => Addcart(data)}
+                    >
                       <a  ><i className="bx bx-cart"></i></a>
                     </li>
                   </ul>

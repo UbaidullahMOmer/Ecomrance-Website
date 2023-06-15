@@ -11,8 +11,6 @@ import React, { useEffect, useState } from "react";
 import Aboutus from "./Component/About/Aboutus";
 import Catagory from "./Component/Catagories/Catagory";
 import Checkout from "./Component/Checkout/Checkout";
-import {Provider} from "react-redux"
-import store from "./Store/Store";
 function App() { 
   // const [pData, setPData] = useState([]);
   // const getMovieList  = async () => {
@@ -52,7 +50,7 @@ function App() {
   }, []);
   return (
     <>  
-    <Provider store={store}>
+
 
    
                  {/* {pData.map((data) =>{
@@ -84,7 +82,7 @@ function App() {
     </Routes> 
       <Footer/>
       </BrowserRouter>
-      </Provider>
+
     </>
   );
 }

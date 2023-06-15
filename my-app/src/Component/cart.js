@@ -2,11 +2,11 @@ import React, { useState} from "react";
 import { Link } from "react-router-dom";
 import LatestProduct from "./LatestProduct";
 import { useSelector, useDispatch } from "react-redux";
-import { remove } from "../Store/CartSlice";
+// import { remove } from "../Store/CartSlice";
 
 function Cart() {   
   
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const item = useSelector((state) => state.cart);
   const [qty, setQty] = useState({});
 
@@ -14,16 +14,17 @@ function Cart() {
     setQty((prevQty) => ({ ...prevQty, [itemId]: event.target.value }));
   }
 
-  const totalPrice = item.reduce((total, data) => {
-    const itemQty = qty[data?.id] ? parseInt(qty[data?.id]) : 1;
-    const subtotal = itemQty * data?.attributes?.price;
-    return total + subtotal;
-  }, 1);
+  const totalPrice = item
+  // .reduce((total, data) => {
+  //   const itemQty = qty[data?.id] ? parseInt(qty[data?.id]) : 1;
+  //   const subtotal = itemQty * data?.attributes?.price;
+  //   return total + subtotal;
+  // }, 1);
 
   function deleteItem(itemId) {
-    dispatch(remove(itemId));
+    // dispatch(remove(itemId));
   }
-console.log(item)
+// console.log(item)
   return (
     <>
       <div className="container cart">

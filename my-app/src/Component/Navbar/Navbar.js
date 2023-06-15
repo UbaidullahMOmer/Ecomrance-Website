@@ -117,7 +117,7 @@ function Navbar(props) {
             </div>
             <Link to="/cart" className="icon">
               <i className="bx bx-cart"></i>
-              <span className="d-flex">{item.length}</span>
+              <span className="d-flex">2</span>
             </Link>
           </div>
 

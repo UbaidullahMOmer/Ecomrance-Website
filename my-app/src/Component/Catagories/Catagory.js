@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import LatestProduct from "../LatestProduct";
-import { useDispatch, useSelector } from "react-redux";
-import { add } from "../../Store/CartSlice";
+// import { useDispatch, useSelector } from "react-redux";
+// import { add } from "../../Store/CartSlice";
 function Catagory() {
-  const item = useSelector((state)=> state.cart)
-  const dispatch = useDispatch();
+  // const item = useSelector((state)=> state.cart)
+  // const dispatch = useDispatch();
   const [rid, setRid] = useState();
   const location = useLocation();
   const navigate = useNavigate();
@@ -35,10 +35,10 @@ function Catagory() {
   }
 
   function Addcart(data) {
-    const itemExists = item.some((oldData) => oldData.id === data.id);
-    if (!itemExists) {
-      dispatch(add(data));
-    }
+    // const itemExists = item.some((oldData) => oldData.id === data.id);
+    // if (!itemExists) {
+      // dispatch(add(data));
+    // }
   }
 
   console.log(rid)
