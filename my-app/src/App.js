@@ -4,7 +4,7 @@ import Navbar from "./Component/Navbar/Navbar";
 import Footer from "./Component/Footer";
 import Login from "./Component/Login"; 
 import Signup from "./Component/Signup";
-import Cart from "./Component/Cart";
+import Cart from "./Component/cart";
 import Product from "./Component/Product";
 import ProductDetail from "./Component/ProductDetail";
 import React, { useEffect, useState } from "react";
@@ -12,7 +12,7 @@ import Aboutus from "./Component/About/Aboutus";
 import Catagory from "./Component/Catagories/Catagory";
 import Checkout from "./Component/Checkout/Checkout";
 import {Provider} from "react-redux"
-import store from "./Store/Store";
+import store from "./Store/store";
 function App() { 
   // const [pData, setPData] = useState([]);
   // const getMovieList  = async () => {

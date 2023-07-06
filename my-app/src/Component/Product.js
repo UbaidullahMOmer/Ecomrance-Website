@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {add} from '../Store/CartSlice';
+import {add} from '../Store/cartSlice';
 import LatestProduct from "./LatestProduct";
 import { useDispatch, useSelector } from "react-redux";
 function Product() {

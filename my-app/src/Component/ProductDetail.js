@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation  } from "react-router-dom";
 import LatestProduct from "./LatestProduct";
 import { useDispatch, useSelector } from "react-redux";
-import {add} from '../Store/CartSlice';
+import {add} from '../Store/cartSlice';
 function ProductDetail() {
   const item = useSelector((state)=> state.cart)
   const dispatch = useDispatch();

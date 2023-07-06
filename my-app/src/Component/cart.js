@@ -2,7 +2,7 @@ import React, { useState} from "react";
 import { Link } from "react-router-dom";
 import LatestProduct from "./LatestProduct";
 import { useSelector, useDispatch } from "react-redux";
-import { remove } from "../Store/CartSlice";
+import { remove } from "../Store/cartSlice";
 
 function Cart() {   
   
